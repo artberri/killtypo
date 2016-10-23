@@ -32,7 +32,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.key{
+.key {
+  box-sizing: content-box;
   font-family: Arial, sans-serif;
   width: 40px;
   height: 40px;

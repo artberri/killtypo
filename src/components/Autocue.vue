@@ -1,14 +1,13 @@
 <template>
   <div class="autocue">
-    <secret-input></secret-input>
     <blinking-cursor></blinking-cursor><letter v-for="letter in lettersWrong" :letter="letter" :isWrong="true"></letter><letter v-for="letter in lettersLeft" :letter="letter"></letter>
+    <div class="mask"></div>
   </div>
 </template>
 
 <script>
 import BlinkingCursor from './BlinkingCursor'
 import Letter from './Letter'
-import SecretInput from './SecretInput'
 
 export default {
   name: 'autocue',
@@ -22,8 +21,7 @@ export default {
   },
   components: {
     BlinkingCursor,
-    Letter,
-    SecretInput
+    Letter
   },
   computed: {
     letters () {
@@ -80,6 +78,7 @@ export default {
 
 <style scoped>
 .autocue {
+  position: relative;
   margin: 0 auto;
   text-align: left;
   width: 616px;
@@ -90,5 +89,15 @@ export default {
   border-bottom: 1px solid #eee;
   font-family: "Times New Roman", Times, serif;
   overflow: hidden;
+}
+
+.mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 70px;
+  z-index: 5;
+  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
 }
 </style>

@@ -25,8 +25,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.keyboard{
-  width:620px;
+.keyboard {
+  box-sizing: content-box;
+  width: 620px;
   height: 210px;
   margin: 0px auto;
   padding: 30px;

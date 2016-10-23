@@ -1,5 +1,5 @@
 <template>
-  <span v-bind:class="{ wrong: isWrong, space: isSpace }">{{ letter }}</span>
+  <span :class="{ wrong: isWrong, space: isSpace }">{{ letter }}</span>
 </template>
 
 <script>
