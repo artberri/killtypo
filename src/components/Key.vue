@@ -1,28 +1,30 @@
 <template>
-  <div :class="classObject">
-      <slot>message</slot>
-  </div>
+  <div :class="classObject" v-html="html"></div>
 </template>
 
 <script>
 export default {
   name: 'key',
-  props: ['type', 'dual', 'slash', 'left', 'right'],
+  props: ['keyobj'],
   computed: {
-    classObject: function () {
+    classObject () {
       let classes = {
         key: true,
-        dual: this.dual,
-        slash: this.slash,
-        left: this.left,
-        right: this.right
+        dual: this.keyobj.dual,
+        slash: this.keyobj.slash,
+        left: this.keyobj.left,
+        right: this.keyobj.right
       }
 
-      if (this.type) {
-        classes[this.type] = true
+      if (this.keyobj.type) {
+        classes[this.keyobj.type] = true
       }
 
       return classes
+    },
+
+    html () {
+      return this.keyobj.letters.join('<br>')
     }
   }
 }

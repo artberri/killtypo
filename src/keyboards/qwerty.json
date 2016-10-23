@@ -1,0 +1,374 @@
+{
+  "name": "qwerty",
+  "keys": [
+    {
+      "letters": ["~", "`"],
+      "type": "num",
+      "dual": true,
+      "keyCode": 192
+    },
+    {
+      "letters": ["!", "1"],
+      "type": "num",
+      "dual": true,
+      "keyCode": 49
+    },
+    {
+      "letters": ["@", "2"],
+      "type": "num",
+      "dual": true,
+      "keyCode": 50
+    },
+    {
+      "letters": ["#", "3"],
+      "type": "num",
+      "dual": true,
+      "keyCode": 51
+    },
+    {
+      "letters": ["$", "4"],
+      "type": "num",
+      "dual": true,
+      "keyCode": 52
+    },
+    {
+      "letters": ["%", "5"],
+      "type": "num",
+      "dual": true,
+      "keyCode": 53
+    },
+    {
+      "letters": ["^", "6"],
+      "type": "num",
+      "dual": true,
+      "keyCode": 54
+    },
+    {
+      "letters": ["&amp;", "7"],
+      "type": "num",
+      "dual": true,
+      "keyCode": 55
+    },
+    {
+      "letters": ["*", "8"],
+      "type": "num",
+      "dual": true,
+      "keyCode": 56
+    },
+    {
+      "letters": ["(", "9"],
+      "type": "num",
+      "dual": true,
+      "keyCode": 57
+    },
+    {
+      "letters": [")", "0"],
+      "type": "num",
+      "dual": true,
+      "keyCode": 48
+    },
+    {
+      "letters": ["_", "-"],
+      "type": "num",
+      "dual": true,
+      "keyCode": 189
+    },
+    {
+      "letters": ["+", "="],
+      "type": "num",
+      "dual": true,
+      "keyCode": 187
+    },
+    {
+      "letters": ["Backspace"],
+      "type": "backspace",
+      "dual": false,
+      "keyCode": 8
+    },
+    {
+      "letters": ["Tab"],
+      "type": "tab",
+      "dual": false,
+      "keyCode": 9
+    },
+    {
+      "letters": ["Q"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 81
+    },
+    {
+      "letters": ["W"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 87
+    },
+    {
+      "letters": ["E"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 69
+    },
+    {
+      "letters": ["R"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 82
+    },
+    {
+      "letters": ["T"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 84
+    },
+    {
+      "letters": ["Y"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 89
+    },
+    {
+      "letters": ["U"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 85
+    },
+    {
+      "letters": ["I"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 73
+    },
+    {
+      "letters": ["O"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 79
+    },
+    {
+      "letters": ["P"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 80
+    },
+    {
+      "letters": ["{", "["],
+      "type": "other",
+      "dual": true,
+      "keyCode": 219
+    },
+    {
+      "letters": ["}", "]"],
+      "type": "other",
+      "dual": true,
+      "keyCode": 221
+    },
+    {
+      "letters": ["|", "\\"],
+      "type": "letter",
+      "dual": true,
+      "keyCode": 220,
+      "slash": true
+    },
+    {
+      "letters": ["Caps", "Lock"],
+      "type": "caps",
+      "dual": false,
+      "keyCode": 20
+    },
+    {
+      "letters": ["A"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 65
+    },
+    {
+      "letters": ["S"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 83
+    },
+    {
+      "letters": ["D"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 68
+    },
+    {
+      "letters": ["F"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 70
+    },
+    {
+      "letters": ["G"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 71
+    },
+    {
+      "letters": ["H"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 72
+    },
+    {
+      "letters": ["J"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 74
+    },
+    {
+      "letters": ["K"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 75
+    },
+    {
+      "letters": ["L"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 76
+    },
+    {
+      "letters": [":", ";"],
+      "type": "other",
+      "dual": true,
+      "keyCode": 186
+    },
+    {
+      "letters": ["\"", "'"],
+      "type": "other",
+      "dual": true,
+      "keyCode": 222
+    },
+    {
+      "letters": ["Enter"],
+      "type": "enter",
+      "dual": false,
+      "keyCode": 13
+    },
+    {
+      "letters": ["Shift"],
+      "type": "shift",
+      "dual": false,
+      "keyCode": 16,
+      "left": true
+    },
+    {
+      "letters": ["Z"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 90
+    },
+    {
+      "letters": ["X"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 88
+    },
+    {
+      "letters": ["C"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 67
+    },
+    {
+      "letters": ["V"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 86
+    },
+    {
+      "letters": ["B"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 66
+    },
+    {
+      "letters": ["N"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 78
+    },
+    {
+      "letters": ["M"],
+      "type": "letter",
+      "dual": false,
+      "keyCode": 77
+    },
+    {
+      "letters": ["&lt;", ","],
+      "type": "other",
+      "dual": true,
+      "keyCode": 188
+    },
+    {
+      "letters": ["&gt;", "."],
+      "type": "other",
+      "dual": true,
+      "keyCode": 190
+    },
+    {
+      "letters": ["?", "/"],
+      "type": "other",
+      "dual": true,
+      "keyCode": 191
+    },
+    {
+      "letters": ["Shift"],
+      "type": "shift",
+      "dual": false,
+      "keyCode": 16,
+      "right": true
+    },
+    {
+      "letters": ["Ctrl"],
+      "type": "ctrl",
+      "dual": false,
+      "keyCode": 17
+    },
+    {
+      "letters": ["&hearts;"],
+      "type": "other",
+      "dual": false,
+      "keyCode": 91
+    },
+    {
+      "letters": ["Alt"],
+      "type": "other",
+      "dual": false,
+      "keyCode": 18
+    },
+    {
+      "letters": ["&nbsp;"],
+      "type": "space",
+      "dual": false,
+      "keyCode": 32
+    },
+    {
+      "letters": ["AltGr"],
+      "type": "other",
+      "dual": false,
+      "keyCode": 225
+    },
+    {
+      "letters": ["&hearts;"],
+      "type": "other",
+      "dual": false,
+      "keyCode": 91
+    },
+    {
+      "letters": ["Prnt"],
+      "type": "other",
+      "dual": false,
+      "keyCode": 0
+    },
+    {
+      "letters": ["Ctrl"],
+      "type": "ctrl",
+      "dual": false,
+      "keyCode": 17
+    }
+  ]
+}
