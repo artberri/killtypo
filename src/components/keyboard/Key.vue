@@ -8,12 +8,18 @@ export default {
   props: ['keyobj'],
   computed: {
     classObject () {
+      let normalizedLetter = this.$store.state.autocue.nextLetter
+      if (normalizedLetter.length === 1) {
+        normalizedLetter.toUpperCase()
+      }
+
       let classes = {
         key: true,
         dual: this.keyobj.dual,
         slash: this.keyobj.slash,
         left: this.keyobj.left,
-        right: this.keyobj.right
+        right: this.keyobj.right,
+        next: this.keyobj.letters.indexOf(normalizedLetter) >= 0
       }
 
       if (this.keyobj.type) {
@@ -24,7 +30,7 @@ export default {
     },
 
     html () {
-      return this.keyobj.letters.join('<br>')
+      return this.keyobj.letters.join('<br>').replace(' ', '&nbsp;')
     }
   }
 }
@@ -107,6 +113,11 @@ export default {
 
 .space {
   width: 234px;
+}
+
+.next {
+  background-color: #42b983;
+  color: #fff;
 }
 
 </style>

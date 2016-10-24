@@ -341,7 +341,7 @@
       "keyCode": 18
     },
     {
-      "letters": ["&nbsp;"],
+      "letters": [" "],
       "type": "space",
       "dual": false,
       "keyCode": 32

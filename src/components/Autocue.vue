@@ -6,8 +6,9 @@
 </template>
 
 <script>
-import BlinkingCursor from './BlinkingCursor'
-import Letter from './Letter'
+import BlinkingCursor from './autoclue/BlinkingCursor'
+import Letter from './autoclue/Letter'
+import * as types from '../store/mutation-types'
 
 export default {
   name: 'autocue',
@@ -32,6 +33,7 @@ export default {
         left: message
       }
       let wrongAmount
+      let nextLetter
 
       // Letters Left
       for (let i = 0; i < content.length; i++) {
@@ -47,12 +49,16 @@ export default {
       if (wrongAmount > 0) {
         response.wrong = response.left.substring(0, wrongAmount)
         response.left = response.left.substring(wrongAmount)
+        nextLetter = 'Backspace'
       } else {
         response.wrong = ''
+        nextLetter = response.left.substring(0, 1)
       }
 
       // Minimize printed text
       response.left = response.left.substring(0, 50)
+
+      this.$store.commit(types.SET_NEXT_LETTER, nextLetter)
 
       return response
     },

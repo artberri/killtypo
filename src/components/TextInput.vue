@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import * as types from '../store/mutation-types'
+
 export default {
   name: 'text-input',
   data () {
@@ -27,8 +29,8 @@ export default {
   },
   methods: {
     keypressed (event) {
-      this.$store.commit('setSecretContent', event.target.value)
-      this.$store.commit('setLastKeyEvent', event, { silent: true })
+      this.$store.commit(types.SET_INPUT_CONTENT, event.target.value)
+      this.$store.commit(types.SET_LASTKEY_EVENT, event, { silent: true })
     },
 
     scrollmaster (event) {
@@ -36,11 +38,11 @@ export default {
     },
 
     focus () {
-      this.$store.commit('startWritting')
+      this.$store.commit(types.START_WRITTING)
     },
 
     blur () {
-      this.$store.commit('stopWritting')
+      this.$store.commit(types.STOP_WRITTING)
     }
   }
 }

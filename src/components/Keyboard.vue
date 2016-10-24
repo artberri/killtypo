@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Key from './Key'
+import Key from './keyboard/Key'
 import keyboard from '../keyboards/qwerty.json'
 
 export default {
