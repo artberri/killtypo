@@ -1,5 +1,5 @@
-export const SET_INPUT_CONTENT = 'SET_INPUT_CONTENT'
-export const SET_LASTKEY_EVENT = 'SET_LASTKEY_EVENT'
-export const SET_NEXT_LETTER = 'SET_NEXT_LETTER'
-export const START_WRITTING = 'START_WRITTING'
-export const STOP_WRITTING = 'STOP_WRITTING'
+export const SET_LASTKEY_EVENT = 'autocue/SET_LASTKEY_EVENT'
+export const START_WRITTING = 'autocue/START_WRITTING'
+export const STOP_WRITTING = 'autocue/STOP_WRITTING'
+
+export const SET_DEADLINE = 'clock/SET_DEADLINE'

@@ -29,8 +29,7 @@ export default {
   },
   methods: {
     keypressed (event) {
-      this.$store.commit(types.SET_INPUT_CONTENT, event.target.value)
-      this.$store.commit(types.SET_LASTKEY_EVENT, event, { silent: true })
+      this.$store.commit(types.SET_LASTKEY_EVENT, event)
     },
 
     scrollmaster (event) {

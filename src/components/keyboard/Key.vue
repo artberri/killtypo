@@ -3,14 +3,23 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'key',
   props: ['keyobj'],
   computed: {
+    ...mapGetters({
+      letters: 'autocueLetters'
+    }),
+    nextLetter () {
+      return this.letters.nextLetter
+    },
     classObject () {
-      let normalizedLetter = this.$store.state.autocue.nextLetter
-      if (normalizedLetter.length === 1) {
-        normalizedLetter.toUpperCase()
+      let letter = this.nextLetter
+
+      if (letter && letter.length === 1) {
+        letter = letter.toUpperCase()
       }
 
       let classes = {
@@ -19,7 +28,7 @@ export default {
         slash: this.keyobj.slash,
         left: this.keyobj.left,
         right: this.keyobj.right,
-        next: this.keyobj.letters.indexOf(normalizedLetter) >= 0
+        next: this.keyobj.letters.indexOf(letter) >= 0
       }
 
       if (this.keyobj.type) {
