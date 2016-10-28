@@ -1,5 +1,5 @@
 <template>
-  <div class="clock">
+  <div class="item">
     <strong>Time left:</strong> {{ seconds }}"
   </div>
 </template>
@@ -23,14 +23,3 @@ export default {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.clock {
-  background: #eee;
-  display: inline-block;
-  padding: 3px 10px;
-  margin: 10px 20px;
-  border-radius: 2px;
-}
-</style>
