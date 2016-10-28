@@ -3,7 +3,7 @@
     <autocue></autocue>
     <keyboard></keyboard>
     <text-input></text-input>
-    <clock></clock>
+    <panel></panel>
   </div>
 </template>
 
@@ -11,7 +11,7 @@
 import Autocue from '../components/Autocue'
 import Keyboard from '../components/Keyboard'
 import TextInput from '../components/TextInput'
-import Clock from '../components/Clock'
+import Panel from '../components/Panel'
 
 export default {
   name: 'game',
@@ -19,7 +19,7 @@ export default {
     Autocue,
     Keyboard,
     TextInput,
-    Clock
+    Panel
   }
 }
 </script>

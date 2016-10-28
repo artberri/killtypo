@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { mapMutations, mapActions } from 'vuex'
 import * as types from '../store/mutation-types'
 
 export default {
@@ -28,20 +29,26 @@ export default {
     }
   },
   methods: {
-    keypressed (event) {
-      this.$store.commit(types.SET_LASTKEY_EVENT, event)
-    },
+    ...mapActions([
+      'startClock'
+    ]),
+
+    ...mapMutations({
+      'keypressed': types.SET_LASTKEY_EVENT,
+      'startWritting': types.START_WRITTING,
+      'stopWritting': types.STOP_WRITTING
+    }),
 
     scrollmaster (event) {
       this.$el.querySelector('#backinput').scrollTop = event.target.scrollTop
     },
 
     focus () {
-      this.$store.commit(types.START_WRITTING)
+      this.startWritting()
     },
 
     blur () {
-      this.$store.commit(types.STOP_WRITTING)
+      this.stopWritting()
     }
   }
 }

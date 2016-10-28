@@ -15,6 +15,9 @@ export default {
     nextLetter () {
       return this.letters.nextLetter
     },
+    isWritting () {
+      return this.$store.state.autocue.isWritting
+    },
     classObject () {
       let letter = this.nextLetter
 
@@ -28,7 +31,7 @@ export default {
         slash: this.keyobj.slash,
         left: this.keyobj.left,
         right: this.keyobj.right,
-        next: this.keyobj.letters.indexOf(letter) >= 0
+        next: this.isWritting && this.keyobj.letters.indexOf(letter) >= 0
       }
 
       if (this.keyobj.type) {
