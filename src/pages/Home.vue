@@ -8,7 +8,7 @@
       <p class="home-text">
         KillTypo is a training tool for typing. You will be able to practice and evaluate your self by writting real news or your own texts.
       </p>
-      <router-link class="home-cta button" :to="{ name: 'game' }">Start Writting</router-link>
+      <router-link class="home-cta button" :to="{ name: 'mode' }">Start Writting</router-link>
     </div>
   </div>
 </template>

@@ -89,7 +89,8 @@ module.exports = {
       require('postcss-nested'),
       require('postcss-cssnext')({
         browsers: ['last 5 versions']
-      })
+      }),
+      require('postcss-input-range')
     ]
   }
 }

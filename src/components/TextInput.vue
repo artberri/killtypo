@@ -1,7 +1,7 @@
 <template>
   <div class="textinput">
     <textarea id="realinput"
-      v-on:keyup="keypressed"
+      v-on:keyup="pressKey"
       v-on:scroll="scrollmaster"
       v-on:focus="focus"
       v-on:blur="blur"
@@ -30,11 +30,11 @@ export default {
   },
   methods: {
     ...mapActions([
-      'startClock'
+      'startClock',
+      'pressKey'
     ]),
 
     ...mapMutations({
-      'keypressed': types.SET_LASTKEY_EVENT,
       'startWritting': types.START_WRITTING,
       'stopWritting': types.STOP_WRITTING
     }),
@@ -80,7 +80,6 @@ textarea {
 
 textarea.full,
 textarea:focus {
-  outline: none;
   background: transparent;
 }
 
@@ -89,19 +88,17 @@ textarea.back {
   color: #ddd;
 }
 
-:focus::-webkit-input-placeholder {
+::placeholder {
+   color: #bbb;
+   text-transform: uppercase;
+   text-align: center;
+   line-height: 160px;
+   height: 100%;
+   font-size: 1.8rem;
+}
+
+:focus::placeholder {
    color: transparent;
 }
 
-:focus:-moz-placeholder { /* Firefox 18- */
-   color: transparent;
-}
-
-:focus::-moz-placeholder {  /* Firefox 19+ */
-   color: transparent;
-}
-
-:focus:-ms-input-placeholder {
-   color: transparent;
-}
 </style>

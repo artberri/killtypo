@@ -29,19 +29,17 @@ export default {
       letters: 'autocueLetters'
     }),
     lettersLeft () {
-      return this.letters.left.split('')
+      return this.prepareAutocue(this.letters.left)
     },
     lettersWrong () {
-      return this.letters.wrong.split('')
+      return this.prepareAutocue(this.letters.wrong)
     }
   },
   methods: {
-    checkKey (input, message) {
-      if (message.length > 0 && input.length > 0) {
-        if (message[0] === input[input.length - 1]) {
-          this.$store.commit('setNotWritten', message.substring(1))
-        }
-      }
+    prepareAutocue (text) {
+      text = text.replace(/(\r\n|\n|\r)/gm, '⏎')
+
+      return text.split('')
     }
   }
 }

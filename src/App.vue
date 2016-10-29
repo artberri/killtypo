@@ -2,7 +2,7 @@
   <div id="app">
     <header class="header">
       <div class="container">
-        <h1>KillTypo</h1>
+        <h1><router-link :to="{ name: 'home' }">KillTypo</router-link></h1>
       </div>
     </header>
     <div class="content">

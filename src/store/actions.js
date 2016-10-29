@@ -5,3 +5,7 @@ export const startClock = ({ commit }, limit) => {
 
   commit(types.SET_DEADLINE, deadline)
 }
+
+export const pressKey = ({ commit }, event) => {
+  commit(types.SET_LASTKEY_EVENT, event)
+}
