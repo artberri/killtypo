@@ -3,15 +3,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
   name: 'key',
   props: ['keyobj'],
   computed: {
-    ...mapGetters({
-      letters: 'autocueLetters'
-    }),
+    letters () {
+      return this.$store.state.autocue.letters
+    },
     nextLetter () {
       return this.letters.nextLetter
     },

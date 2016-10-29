@@ -6,6 +6,40 @@ export const startClock = ({ commit }, limit) => {
   commit(types.SET_DEADLINE, deadline)
 }
 
-export const pressKey = ({ commit }, event) => {
+export const pressKey = ({ commit, state }, event) => {
   commit(types.SET_LASTKEY_EVENT, event)
+
+  let content = state.autocue.content
+  let message = state.autocue.message
+  let response = {
+    wrong: '',
+    left: message
+  }
+  let wrongAmount
+
+  // Letters Left
+  for (let i = 0; i < content.length; i++) {
+    if (content[i] !== message[i]) {
+      break
+    }
+
+    response.left = response.left.substring(1)
+  }
+
+  // Letters Wrong
+  wrongAmount = content.length - (message.length - response.left.length)
+  if (wrongAmount > 0) {
+    response.wrong = response.left.substring(0, wrongAmount)
+    response.left = response.left.substring(wrongAmount)
+    response.nextLetter = 'Backspace'
+  } else {
+    commit(types.INCREMENT_CHAR, response)
+    response.wrong = ''
+    response.nextLetter = response.left.substring(0, 1)
+  }
+
+  // Minimize printed text
+  response.left = response.left.substring(0, 50)
+
+  commit(types.SET_LETTERS, response)
 }

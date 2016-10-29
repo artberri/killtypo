@@ -1,16 +1,19 @@
 <template>
   <div>
     <clock></clock>
+    <wpm-panel></wpm-panel>
   </div>
 </template>
 
 <script>
 import Clock from './panel/Clock'
+import WpmPanel from './panel/WpmPanel'
 
 export default {
   name: 'panel',
   components: {
-    Clock
+    Clock,
+    WpmPanel
   }
 }
 </script>

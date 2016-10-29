@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import * as actions from './actions'
 import * as getters from './getters'
 import autocue from './modules/autocue'
-import clock from './modules/clock'
+import game from './modules/game'
 import createLogger from 'vuex/dist/logger'
 
 Vue.use(Vuex)
@@ -15,7 +15,7 @@ export default new Vuex.Store({
   getters,
   modules: {
     autocue,
-    clock
+    game
   },
   strict: debug,
   plugins: debug ? [createLogger()] : []

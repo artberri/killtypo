@@ -36,7 +36,8 @@ export default {
 
     ...mapMutations({
       'startWritting': types.START_WRITTING,
-      'stopWritting': types.STOP_WRITTING
+      'stopWritting': types.STOP_WRITTING,
+      'startGame': types.START_GAME
     }),
 
     scrollmaster (event) {
@@ -44,6 +45,7 @@ export default {
     },
 
     focus () {
+      this.startGame()
       this.startWritting()
     },
 
@@ -95,10 +97,12 @@ textarea.back {
    line-height: 160px;
    height: 100%;
    font-size: 1.8rem;
+   background: #fff;
 }
 
 :focus::placeholder {
    color: transparent;
+   background: transparent;
 }
 
 </style>

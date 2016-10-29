@@ -6,28 +6,19 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import BlinkingCursor from './autoclue/BlinkingCursor'
 import Letter from './autoclue/Letter'
 
 export default {
   name: 'autocue',
-  data () {
-    return {
-      letters: {
-        wrong: '',
-        left: ''
-      }
-    }
-  },
   components: {
     BlinkingCursor,
     Letter
   },
   computed: {
-    ...mapGetters({
-      letters: 'autocueLetters'
-    }),
+    letters () {
+      return this.$store.state.autocue.letters
+    },
     lettersLeft () {
       return this.prepareAutocue(this.letters.left)
     },

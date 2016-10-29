@@ -5,8 +5,11 @@ const state = {
   content: '',
   lastKey: null,
   isWritting: false,
-  successes: 0,
-  errors: 0
+  letters: {
+    wrong: '',
+    left: '',
+    nextLetter: ''
+  }
 }
 
 export default {
@@ -21,17 +24,16 @@ export default {
       state.lastKey = event.which || event.keyCode
     },
 
+    [types.SET_LETTERS] (state, letters) {
+      state.letters = letters
+    },
+
     [types.START_WRITTING] (state) {
       state.isWritting = true
     },
 
     [types.STOP_WRITTING] (state) {
       state.isWritting = false
-    },
-
-    [types.RESET_GAME] (state) {
-      state.successes = 0
-      state.errors = 0
     }
   }
 }
