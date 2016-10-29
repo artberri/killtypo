@@ -1,18 +1,12 @@
 import * as types from './mutation-types'
 
-export const startClock = ({ commit }, limit) => {
-  let deadline = new Date(Date.parse(new Date()) + limit * 1000)
-
-  commit(types.SET_DEADLINE, deadline)
-}
-
 export const pressKey = ({ commit, state }, event) => {
   commit(types.SET_LASTKEY_EVENT, event)
 
+  let keyCode = event.which || event.keyCode
   let content = state.autocue.content
   let message = state.autocue.message
   let response = {
-    wrong: '',
     left: message
   }
   let wrongAmount
@@ -29,6 +23,9 @@ export const pressKey = ({ commit, state }, event) => {
   // Letters Wrong
   wrongAmount = content.length - (message.length - response.left.length)
   if (wrongAmount > 0) {
+    if (keyCode !== 8) { // Not back space
+      commit(types.INCREMENT_WRONG, response)
+    }
     response.wrong = response.left.substring(0, wrongAmount)
     response.left = response.left.substring(wrongAmount)
     response.nextLetter = 'Backspace'

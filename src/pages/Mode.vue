@@ -44,7 +44,9 @@ export default {
   },
   methods: {
     ...mapMutations({
-      'setMessage': types.SET_MESSAGE
+      'setMessage': types.SET_MESSAGE,
+      'resetGame': types.RESET_GAME,
+      'setLetters': types.SET_LETTERS
     }),
 
     setMode (mode) {
@@ -81,7 +83,13 @@ export default {
 
       message = message.split(' ').splice(0, wordLimit).join(' ')
 
+      this.resetGame()
       this.setMessage(message)
+      this.setLetters({
+        wrong: '',
+        left: message,
+        nextLetter: message.slice(0, 1)
+      })
       this.$router.push({ path: 'game' })
     }
   }

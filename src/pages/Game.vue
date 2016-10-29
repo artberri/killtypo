@@ -20,6 +20,15 @@ export default {
     Keyboard,
     TextInput,
     Panel
+  },
+  beforeRouteEnter (to, from, next) {
+    console.log(from)
+
+    if (from.name !== 'mode') {
+      next({ name: 'home' })
+    } else {
+      next()
+    }
   }
 }
 </script>

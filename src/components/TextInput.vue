@@ -30,7 +30,6 @@ export default {
   },
   methods: {
     ...mapActions([
-      'startClock',
       'pressKey'
     ]),
 
