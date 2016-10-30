@@ -5,6 +5,7 @@
       v-on:scroll="scrollmaster"
       v-on:focus="focus"
       v-on:blur="blur"
+      v-on:paste="paste"
       placeholder="Click here to start writing..."
       :class="{ full: hasContent }"
     ></textarea>
@@ -50,6 +51,12 @@ export default {
 
     blur () {
       this.stopWritting()
+    },
+
+    paste (event) {
+      event.preventDefault()
+
+      return false
     }
   }
 }

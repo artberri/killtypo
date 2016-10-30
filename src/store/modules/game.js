@@ -4,7 +4,8 @@ const state = {
   playing: false,
   startTime: 0,
   wrong: 0,
-  timings: []
+  timings: [],
+  finished: false
 }
 
 export default {
@@ -15,6 +16,7 @@ export default {
       state.startTime = 0
       state.timings = []
       state.wrong = 0
+      state.finished = false
     },
 
     [types.START_GAME] (state) {
@@ -23,12 +25,14 @@ export default {
         state.startTime = Date.now()
         state.timings = []
         state.wrong = 0
+        state.finished = false
       }
     },
 
     [types.STOP_GAME] (state) {
       if (state.playing) {
         state.playing = false
+        state.finished = true
       }
     },
 
