@@ -26,7 +26,7 @@ export default {
   name: 'game',
   computed: {
     finished () {
-      return !this.$store.state.game.finished
+      return this.$store.state.game.finished
     }
   },
   components: {

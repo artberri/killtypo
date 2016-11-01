@@ -26,6 +26,7 @@
 <script>
 import { mapMutations } from 'vuex'
 import * as types from '../store/mutation-types'
+import settings from '../settings'
 
 export default {
   name: 'mode',
@@ -34,7 +35,7 @@ export default {
       mode: 0,
       message: '',
       removeBreakLines: true,
-      wordLimit: 100
+      wordLimit: settings.defaultWordLimit
     }
   },
   computed: {
@@ -62,19 +63,19 @@ export default {
     },
 
     showNext () {
-      return this.mode > 0 && this.message.length > 0 && this.words.length >= 40
+      return this.mode > 0 && this.message.length > 0 && this.words.length >= settings.minWordLimit
     },
 
     showError () {
-      return this.mode > 0 && this.message.length > 0 && this.words.length < 40
+      return this.mode > 0 && this.message.length > 0 && this.words.length < settings.minWordLimit
     },
 
     play () {
       let message = this.message
       let wordLimit = this.wordLimit
 
-      if (this.wordLimit < 40 || this.wordLimit > 1000) {
-        wordLimit = 100
+      if (this.wordLimit < settings.minWordLimit || this.wordLimit > settings.maxWordLimit) {
+        wordLimit = settings.defaultWordLimit
       }
 
       if (this.removeBreakLines) {

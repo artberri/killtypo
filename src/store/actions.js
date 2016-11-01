@@ -1,4 +1,5 @@
 import * as types from './mutation-types'
+import settings from '../settings'
 
 export const pressKey = ({ commit, state }, event) => {
   commit(types.SET_LASTKEY_EVENT, event)
@@ -36,7 +37,7 @@ export const pressKey = ({ commit, state }, event) => {
   }
 
   // Minimize printed text
-  response.left = response.left.substring(0, 50)
+  response.left = response.left.substring(0, settings.autocueLength)
 
   commit(types.SET_LETTERS, response)
 }
