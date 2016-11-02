@@ -32,3 +32,12 @@ export const getAccuracy = state => {
 
   return accuracy.toFixed(2)
 }
+
+export const getFinalTime = state => {
+  let timings = state.game.timings
+  let charAmount = timings.length
+  let lastTime = timings[charAmount - 1]
+  let startTime = state.game.startTime
+
+  return lastTime ? lastTime - startTime : 0
+}

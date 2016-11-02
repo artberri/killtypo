@@ -29,7 +29,7 @@ export default {
       }
     },
 
-    [types.STOP_GAME] (state) {
+    [types.FINISH_GAME] (state) {
       if (state.playing) {
         state.playing = false
         state.finished = true

@@ -6,6 +6,6 @@ export const SET_LETTERS = 'autocue/SET_LETTERS'
 
 export const RESET_GAME = 'game/RESET_GAME'
 export const START_GAME = 'game/START_GAME'
-export const STOP_GAME = 'game/STOP_GAME'
+export const FINISH_GAME = 'game/FINISH_GAME'
 export const INCREMENT_CHAR = 'game/INCREMENT_CHAR'
 export const INCREMENT_WRONG = 'game/INCREMENT_WRONG'
