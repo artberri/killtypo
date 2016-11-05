@@ -25,13 +25,13 @@ export const pressKey = ({ commit, state }, event) => {
   wrongAmount = content.length - (message.length - response.left.length)
   if (wrongAmount > 0) {
     if (keyCode !== 8) { // Not back space
-      commit(types.INCREMENT_WRONG, response)
+      commit(types.INCREMENT_WRONG)
     }
     response.wrong = response.left.substring(0, wrongAmount)
     response.left = response.left.substring(wrongAmount)
     response.nextLetter = 'Backspace'
   } else {
-    commit(types.INCREMENT_CHAR, response)
+    commit(types.INCREMENT_CHAR)
     response.wrong = ''
     response.nextLetter = response.left.substring(0, 1)
   }
@@ -40,4 +40,8 @@ export const pressKey = ({ commit, state }, event) => {
   response.left = response.left.substring(0, settings.autocueLength)
 
   commit(types.SET_LETTERS, response)
+
+  if (response.left.length === 0 && response.wrong.length === 0) {
+    commit(types.FINISH_GAME)
+  }
 }

@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'clock',
   created () {
@@ -18,22 +20,44 @@ export default {
     }
   },
   computed: {
-    minutes () {
+    ...mapGetters({
+      final: 'getFinalTime'
+    }),
+    elapsed () {
+      let elapsedTime = null
       let startTime = this.$store.state.game.startTime
-      let minutes = '00'
 
       if (startTime > 0) {
-        minutes = Math.trunc((this.now - startTime) / 60000) % 60
+        elapsedTime = this.now - startTime
+      }
+
+      return elapsedTime
+    },
+    timeToShow () {
+      let response = this.elapsed
+
+      if (this.$store.state.game.finished) {
+        response = this.final
+      }
+
+      return response
+    },
+    minutes () {
+      let minutes = '00'
+      let timeToShow = this.timeToShow
+
+      if (timeToShow !== null) {
+        minutes = Math.trunc(timeToShow / 60000) % 60
       }
 
       return this.format(minutes)
     },
     seconds () {
-      let startTime = this.$store.state.game.startTime
       let seconds = '00'
+      let timeToShow = this.timeToShow
 
-      if (startTime > 0) {
-        seconds = Math.trunc((this.now - startTime) / 1000) % 60
+      if (timeToShow !== null) {
+        seconds = Math.trunc(timeToShow / 1000) % 60
       }
 
       return this.format(seconds)
