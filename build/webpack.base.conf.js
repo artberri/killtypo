@@ -1,6 +1,7 @@
 var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
+var ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
 var projectRoot = path.resolve(__dirname, '../')
 
 var env = process.env.NODE_ENV
@@ -92,5 +93,10 @@ module.exports = {
       }),
       require('postcss-input-range')
     ]
-  }
+  },
+  plugins: [
+    new ServiceWorkerWebpackPlugin({
+      entry: path.join(__dirname, '../src/sw.js'),
+    }),
+  ]
 }
