@@ -28,7 +28,7 @@
 import { mapMutations } from 'vuex'
 import * as types from '../store/mutation-types'
 import settings from '../settings'
-import quotes from '../../static/lang.json'
+import quotes from '../quotes'
 import LanguageMixin from '../mixins/LanguageMixin'
 
 export default {
@@ -59,7 +59,9 @@ export default {
     }),
 
     randomQuote () {
-      return quotes[Math.floor(Math.random() * quotes.length)]
+      let texts = quotes[this.language]
+
+      return texts[Math.floor(Math.random() * texts.length)]
     },
 
     setMode (mode) {
