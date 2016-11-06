@@ -17,7 +17,8 @@
     "vue": "^2.0.1",
     "vue-i18n": "^4.7.1",
     "vue-router": "^2.0.1",
-    "vuex": "^2.0.0"
+    "vuex": "^2.0.0",
+    "vuex-persistedstate": "^0.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",

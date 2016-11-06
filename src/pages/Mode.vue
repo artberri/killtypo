@@ -14,9 +14,9 @@
     </div>
     <div class="next-container" v-show="showNext()">
       <label for="word-range" class="real-label">{{ $t("mode.trim", { wordLimit }) }}</label>
-      <input id="word-range" type="range" v-model="wordLimit" min="50" max="1000">
+      <input id="word-range" type="range" :value="wordLimit" @input="updateWordLimit" min="50" max="1000">
       <br><br>
-      <input id="remove-intros" v-model="removeBreakLines" type="checkbox" class="switch">
+      <input id="remove-intros" v-on:change="updateRemoveLineBreaks" :checked="removeLineBreaks" type="checkbox" class="switch">
       <label for="remove-intros" class="switch-label"></label>
       <label for="remove-intros" class="real-label">{{ $t("mode.lineBreak") }}</label>
     </div>
@@ -25,10 +25,10 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 import * as types from '../store/mutation-types'
 import settings from '../settings'
-import quotes from '../quotes'
+import quotes from '../quotes/'
 import LanguageMixin from '../mixins/LanguageMixin'
 
 export default {
@@ -38,12 +38,14 @@ export default {
     return {
       mode: 2,
       message: '',
-      removeBreakLines: true,
-      wordLimit: settings.defaultWordLimit,
       minWordLimit: settings.minWordLimit
     }
   },
   computed: {
+    ...mapState({
+      wordLimit: state => state.options.wordLimit,
+      removeLineBreaks: state => state.options.removeLineBreaks
+    }),
     words () {
       return this.message.split(' ')
     },
@@ -55,8 +57,18 @@ export default {
     ...mapMutations({
       'setMessage': types.SET_MESSAGE,
       'resetGame': types.RESET_GAME,
-      'setLetters': types.SET_LETTERS
+      'setLetters': types.SET_LETTERS,
+      'setWordLimit': types.OPTION_WORDLIMIT,
+      'setRemoveLineBreaks': types.OPTION_REMOVELINEBREAKS
     }),
+
+    updateWordLimit (e) {
+      this.setWordLimit(e.target.value)
+    },
+
+    updateRemoveLineBreaks (e) {
+      this.setRemoveLineBreaks(e.target.checked)
+    },
 
     randomQuote () {
       let texts = quotes[this.language]
