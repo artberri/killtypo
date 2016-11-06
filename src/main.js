@@ -7,11 +7,11 @@ import store from './store'
 import Home from './pages/Home'
 import Game from './pages/Game'
 import Mode from './pages/Mode'
-import runtime from 'serviceworker-webpack-plugin/lib/runtime'
+// import runtime from 'serviceworker-webpack-plugin/lib/runtime'
 
-if ('serviceWorker' in navigator) {
-  runtime.register()
-}
+// if ('serviceWorker' in navigator) {
+  // runtime.register()
+// }
 
 Vue.use(VueRouter)
 

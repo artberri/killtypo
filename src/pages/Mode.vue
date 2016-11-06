@@ -2,18 +2,19 @@
   <div>
     <h2>Select Mode</h2>
     <div class="mode-buttons">
-      <a v-on:click="setMode(1)" :class="classActive(1)">Paste Your Own Text</a>
-      <a v-on:click="setMode(2)" :class="classActive(2)">Select Piece of News</a>
+      <a v-on:click="setMode(2)" :class="classActive(2)">Random Text</a>
+      <a v-on:click="setMode(1)" :class="classActive(1)">Paste Text</a>
     </div>
     <div>
       <textarea placeholder="Paste your text here" v-model="message" v-show="mode == 1"></textarea>
+      <textarea v-model="randomText" v-show="mode == 2"></textarea>
     </div>
     <div class="error" v-show="showError()">
       You must paste 40 words or more.
     </div>
     <div class="next-container" v-show="showNext()">
       <label for="word-range" class="real-label">Trim text to {{ wordLimit }} words</label>
-      <input id="word-range" type="range" v-model="wordLimit" min="40" max="1000">
+      <input id="word-range" type="range" v-model="wordLimit" min="20" max="1000">
       <br><br>
       <input id="remove-intros" v-model="removeBreakLines" type="checkbox" class="switch">
       <label for="remove-intros" class="switch-label"></label>
@@ -27,12 +28,13 @@
 import { mapMutations } from 'vuex'
 import * as types from '../store/mutation-types'
 import settings from '../settings'
+import quotes from '../../static/lang.json'
 
 export default {
   name: 'mode',
   data () {
     return {
-      mode: 0,
+      mode: 2,
       message: '',
       removeBreakLines: true,
       wordLimit: settings.defaultWordLimit
@@ -40,7 +42,11 @@ export default {
   },
   computed: {
     words () {
+      console.log(quotes)
       return this.message.split(' ')
+    },
+    randomText () {
+      return this.randomQuote()
     }
   },
   methods: {
@@ -49,6 +55,10 @@ export default {
       'resetGame': types.RESET_GAME,
       'setLetters': types.SET_LETTERS
     }),
+
+    randomQuote () {
+      return quotes[Math.floor(Math.random() * quotes.length)]
+    },
 
     setMode (mode) {
       this.mode = mode
@@ -63,7 +73,7 @@ export default {
     },
 
     showNext () {
-      return this.mode > 0 && this.message.length > 0 && this.words.length >= settings.minWordLimit
+      return this.mode === 2 || (this.mode > 0 && this.message.length > 0 && this.words.length >= settings.minWordLimit)
     },
 
     showError () {
@@ -71,7 +81,7 @@ export default {
     },
 
     play () {
-      let message = this.message
+      let message = this.mode === 2 ? this.randomText : this.message
       let wordLimit = this.wordLimit
 
       if (this.wordLimit < settings.minWordLimit || this.wordLimit > settings.maxWordLimit) {
