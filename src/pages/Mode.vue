@@ -1,26 +1,26 @@
 <template>
   <div>
-    <h2>Select Mode</h2>
+    <h2>{{ $t("mode.select") }}</h2>
     <div class="mode-buttons">
-      <a v-on:click="setMode(2)" :class="classActive(2)">Random Text</a>
-      <a v-on:click="setMode(1)" :class="classActive(1)">Paste Text</a>
+      <a v-on:click="setMode(2)" :class="classActive(2)">{{ $t("mode.random") }}</a>
+      <a v-on:click="setMode(1)" :class="classActive(1)">{{ $t("mode.paste") }}</a>
     </div>
     <div>
       <textarea placeholder="Paste your text here" v-model="message" v-show="mode == 1"></textarea>
       <textarea v-model="randomText" v-show="mode == 2"></textarea>
     </div>
     <div class="error" v-show="showError()">
-      You must paste 40 words or more.
+      {{ $t("mode.minError", { minWordLimit }) }}
     </div>
     <div class="next-container" v-show="showNext()">
-      <label for="word-range" class="real-label">Trim text to {{ wordLimit }} words</label>
-      <input id="word-range" type="range" v-model="wordLimit" min="20" max="1000">
+      <label for="word-range" class="real-label">{{ $t("mode.trim", { wordLimit }) }}</label>
+      <input id="word-range" type="range" v-model="wordLimit" min="50" max="1000">
       <br><br>
       <input id="remove-intros" v-model="removeBreakLines" type="checkbox" class="switch">
       <label for="remove-intros" class="switch-label"></label>
-      <label for="remove-intros" class="real-label">Remove line breaks</label>
+      <label for="remove-intros" class="real-label">{{ $t("mode.lineBreak") }}</label>
     </div>
-    <a class="next button" v-on:click="play()" v-show="showNext()">Next</a>
+    <a class="next button" v-on:click="play()" v-show="showNext()">{{ $t("mode.next") }}</a>
   </div>
 </template>
 
@@ -29,20 +29,22 @@ import { mapMutations } from 'vuex'
 import * as types from '../store/mutation-types'
 import settings from '../settings'
 import quotes from '../../static/lang.json'
+import LanguageMixin from '../mixins/LanguageMixin'
 
 export default {
   name: 'mode',
+  mixins: [LanguageMixin],
   data () {
     return {
       mode: 2,
       message: '',
       removeBreakLines: true,
-      wordLimit: settings.defaultWordLimit
+      wordLimit: settings.defaultWordLimit,
+      minWordLimit: settings.minWordLimit
     }
   },
   computed: {
     words () {
-      console.log(quotes)
       return this.message.split(' ')
     },
     randomText () {
@@ -101,7 +103,8 @@ export default {
         left: message,
         nextLetter: message.slice(0, 1)
       })
-      this.$router.push({ path: 'game' })
+
+      this.$router.push({ name: 'game-' + this.language })
     }
   }
 }

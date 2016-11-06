@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import Autocue from '../components/Autocue'
 import Keyboard from '../components/Keyboard'
 import TextInput from '../components/TextInput'
@@ -37,8 +38,8 @@ export default {
     Chart
   },
   beforeRouteEnter (to, from, next) {
-    if (from.name !== 'mode') {
-      next({ name: 'home' })
+    if (!from.name || from.name.indexOf('mode-') !== 0) {
+      next({ name: 'home-' + Vue.config.lang })
     } else {
       next()
     }

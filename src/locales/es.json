@@ -1,0 +1,16 @@
+{
+  "home": {
+    "claim": "Diviértete mecanografiando",
+    "sentence": "KillTypo es una aplicación de mecanografía. Podrás practicar y autoevaluarte escribiendo testos de ejemplo o los tuyos propios.",
+    "cta": "Empieza a escribir"
+  },
+  "mode": {
+    "select": "Selecciona Modo",
+    "random": "Texto Aleatorio",
+    "paste": "Pegar Texto",
+    "minError": "El texto tiene que tener al menos {minWordLimit} palabras.",
+    "trim": "Limitar el texto a {wordLimit} palabras",
+    "lineBreak": "Quitar saltos de línea",
+    "next": "Siguiente"
+  }
+}

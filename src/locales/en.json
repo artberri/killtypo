@@ -1,0 +1,16 @@
+{
+  "home": {
+    "claim": "Practice Typing And Get Fun",
+    "sentence": "KillTypo is a training tool for typing. You will be able to practice and evaluate your self by writting real news or your own texts.",
+    "cta": "Start Writting"
+  },
+  "mode": {
+    "select": "Select Mode",
+    "random": "Random Text",
+    "paste": "Paste Text",
+    "minError": "You must paste {minWordLimit} words or more.",
+    "trim": "Trim text to {wordLimit} words",
+    "lineBreak": "Remove line breaks",
+    "next": "Next"
+  }
+}

@@ -2,26 +2,22 @@
   <div>
     <div class="container">
       <div id="logo">
-        <router-link :to="{ name: 'home' }"><img src="../assets/logo.png" height="150" width="150"></router-link>
+        <img src="../assets/logo.png" height="150" width="150">
       </div>
-      <h2 class="home-claim">Practice Typing And Get Fun</h2>
+      <h2 class="home-claim">{{ $t("home.claim") }}</h2>
       <p class="home-text">
-        KillTypo is a training tool for typing. You will be able to practice and evaluate your self by writting real news or your own texts.
+        {{ $t("home.sentence") }}
       </p>
-      <router-link class="home-cta button" :to="{ name: 'mode' }">Start Writting</router-link>
+      <router-link class="home-cta button" :to="{ name: 'mode-' + language }">{{ $t("home.cta") }}</router-link>
     </div>
   </div>
 </template>
 
 <script>
+import LanguageMixin from '../mixins/LanguageMixin'
+
 export default {
   name: 'home',
-  created () {
-    /* this.$http.get('http://www.20minutos.es/rss/').then((response) => {
-      // success callback
-    }, (response) => {
-      // error callback
-    }) */
-  }
+  mixins: [LanguageMixin]
 }
 </script>
