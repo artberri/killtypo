@@ -6,7 +6,7 @@
       <text-input></text-input>
     </div>
     <div v-show="finished">
-      <h2>Congrats!</h2>
+      <h2>{{ $t("game.congrats") }}</h2>
     </div>
     <panel></panel>
     <div v-show="finished">

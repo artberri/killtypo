@@ -12,5 +12,14 @@
     "trim": "Trim text to {wordLimit} words",
     "lineBreak": "Remove line breaks",
     "next": "Next"
+  },
+  "game": {
+    "congrats": "Congrats!"
+  },
+  "panel": {
+    "accuracy": "Accuracy",
+    "wpm": "WPM",
+    "cpm": "CPM",
+    "elapsed": "Time elapsed"
   }
 }

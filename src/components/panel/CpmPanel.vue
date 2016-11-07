@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <strong>CPM:</strong> {{ cpm }}
+    <strong>{{ $t("panel.cpm") }}:</strong> {{ cpm }}
   </div>
 </template>
 

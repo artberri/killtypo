@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <strong>Time elapsed:</strong> {{ minutes }}:{{ seconds }}
+    <strong>{{ $t("panel.elapsed") }}:</strong> {{ minutes }}:{{ seconds }}
   </div>
 </template>
 

@@ -12,5 +12,14 @@
     "trim": "Limitar el texto a {wordLimit} palabras",
     "lineBreak": "Quitar saltos de línea",
     "next": "Siguiente"
+  },
+  "game": {
+    "congrats": "¡Felicidades!"
+  },
+  "panel": {
+    "accuracy": "Precisión",
+    "wpm": "PPM",
+    "cpm": "CPM",
+    "elapsed": "Tiempo"
   }
 }

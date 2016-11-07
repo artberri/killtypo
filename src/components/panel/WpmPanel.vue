@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <strong>WPM:</strong> {{ wpm }}
+    <strong>{{ $t("panel.wpm") }}:</strong> {{ wpm }}
   </div>
 </template>
 

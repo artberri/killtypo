@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <strong>Accuracy:</strong> {{ accuracy }}%
+    <strong>{{ $t("panel.accuracy") }}:</strong> {{ accuracy }}%
   </div>
 </template>
 
