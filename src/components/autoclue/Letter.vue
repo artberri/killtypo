@@ -24,6 +24,16 @@ span {
 .wrong {
   background: #d00;
   color: #fff;
+
+  &.space:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 7px;
+    background: #d00;
+    height: 66px;
+    top: 2px;
+  }
 }
 
 .space {
