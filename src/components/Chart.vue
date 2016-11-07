@@ -40,10 +40,16 @@ export default {
           datasets: [
             {
               label: 'WPM',
+              borderColor: 'rgba(44, 62, 80, 1)',
+              pointRadius: 2,
+              backgroundColor: 'rgba(44, 62, 80, 0.4)',
               data: []
             },
             {
               label: 'CPM',
+              borderColor: 'rgba(4, 232, 142, 1)',
+              pointRadius: 2,
+              backgroundColor: 'rgba(4, 232, 142, 0.4)',
               data: []
             }
           ]
@@ -52,7 +58,11 @@ export default {
           scales: {
             xAxes: [{
               type: 'linear',
-              position: 'bottom'
+              position: 'bottom',
+              scaleLabel: {
+                display: true,
+                labelString: 'Elapsed time (in seconds)'
+              }
             }]
           }
         }

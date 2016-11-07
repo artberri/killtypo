@@ -65,7 +65,10 @@ export const getFinalTime = state => {
 
 export const getWpmChartData = state => {
   let data = getGameData(state)
-  let dataPoints = []
+  let dataPoints = [{
+    x: 0,
+    y: 0
+  }]
 
   for (let i = 0; i < data.charAmount; i++) {
     let time = data.timings[i]
@@ -85,7 +88,10 @@ export const getWpmChartData = state => {
 
 export const getCpmChartData = state => {
   let data = getGameData(state)
-  let dataPoints = []
+  let dataPoints = [{
+    x: 0,
+    y: 0
+  }]
 
   for (let i = 0; i < data.charAmount; i++) {
     let time = data.timings[i]
