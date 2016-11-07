@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <h2>{{ $t("mode.select") }}</h2>
     <div class="mode-buttons">
       <a v-on:click="setMode(2)" :class="classActive(2)">{{ $t("mode.random") }}</a>
@@ -142,7 +142,7 @@ h2 {
 textarea {
   margin: auto;
   width: 634px;
-  height: 300px;
+  height: 200px;
 }
 
 .next-container {

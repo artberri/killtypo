@@ -28,6 +28,7 @@ assetsToCache = assetsToCache.map((path) => {
 assetsToCache.push('https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css')
 assetsToCache.push('https://fonts.googleapis.com/css?family=PT+Sans')
 assetsToCache.push('https://use.fontawesome.com/7b28c2d7df.css')
+assetsToCache.push('http://yui.yahooapis.com/pure/0.6.0/pure-min.cs')
 
 // When the service worker is first added to a computer.
 self.addEventListener('install', (event) => {

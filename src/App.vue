@@ -9,18 +9,21 @@
     <div class="content">
       <router-view></router-view>
     </div>
+    <my-footer></my-footer>
   </div>
 </template>
 
 <script>
 import LanguageMixin from './mixins/LanguageMixin'
 import LanguageSwitcher from './components/LanguageSwitcher'
+import MyFooter from './components/MyFooter'
 
 export default {
   name: 'app',
   mixins: [LanguageMixin],
   components: {
-    LanguageSwitcher
+    LanguageSwitcher,
+    MyFooter
   }
 }
 </script>
