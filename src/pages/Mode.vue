@@ -14,7 +14,7 @@
     </div>
     <div class="next-container" v-show="showNext()">
       <label for="word-range" class="real-label">{{ $t("mode.trim", { wordLimit }) }}</label>
-      <input id="word-range" type="range" :value="wordLimit" @input="updateWordLimit" min="50" max="1000">
+      <input id="word-range" type="range" :value="wordLimit" @input="updateWordLimit" min="1" max="1000">
       <br><br>
       <input id="remove-intros" v-on:change="updateRemoveLineBreaks" :checked="removeLineBreaks" type="checkbox" class="switch">
       <label for="remove-intros" class="switch-label"></label>

@@ -41,3 +41,45 @@ export const getFinalTime = state => {
 
   return lastTime ? lastTime - startTime : 0
 }
+
+export const getWpmChartData = state => {
+  let timings = state.game.timings
+  let charAmount = timings.length
+  let startTime = state.game.startTime
+  let dataPoints = []
+
+  for (let i = 0; i < charAmount; i++) {
+    let time = timings[i]
+    let seconds = (time - startTime) / 1000
+    let delta = time ? seconds / 60 : 0
+    let wpm = delta > 0 ? (charAmount / 5) / delta : 0
+
+    dataPoints.push({
+      x: seconds.toFixed(2),
+      y: wpm.toFixed(2)
+    })
+  }
+
+  return dataPoints
+}
+
+export const getCpmChartData = state => {
+  let timings = state.game.timings
+  let charAmount = timings.length
+  let startTime = state.game.startTime
+  let dataPoints = []
+
+  for (let i = 0; i < charAmount; i++) {
+    let time = timings[i]
+    let seconds = (time - startTime) / 1000
+    let delta = time ? seconds / 60 : 0
+    let cpm = delta > 0 ? charAmount / delta : 0
+
+    dataPoints.push({
+      x: seconds.toFixed(2),
+      y: cpm.toFixed(2)
+    })
+  }
+
+  return dataPoints
+}
