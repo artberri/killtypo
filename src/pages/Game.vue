@@ -11,6 +11,7 @@
     <panel></panel>
     <div v-show="finished">
       <chart></chart>
+      <router-link class="next button" :to="{ name: 'mode-' + language }">{{ $t("game.tryagain") }}</router-link>
     </div>
   </div>
 </template>
@@ -22,9 +23,11 @@ import Keyboard from '../components/Keyboard'
 import TextInput from '../components/TextInput'
 import Panel from '../components/Panel'
 import Chart from '../components/Chart'
+import LanguageMixin from '../mixins/LanguageMixin'
 
 export default {
   name: 'game',
+  mixins: [LanguageMixin],
   computed: {
     finished () {
       return this.$store.state.game.finished
@@ -50,5 +53,10 @@ export default {
 <style scoped>
 h2 {
   font-size: 3rem;
+}
+
+.next {
+  margin-top: 30px;
+  line-height: 70px;
 }
 </style>

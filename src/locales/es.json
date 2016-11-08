@@ -14,12 +14,17 @@
     "next": "Siguiente"
   },
   "game": {
-    "congrats": "¡Felicidades!"
+    "congrats": "¡Felicidades!",
+    "tryagain": "Prueba otra vez"
   },
   "panel": {
     "accuracy": "Precisión",
     "wpm": "PPM",
     "cpm": "CPM",
     "elapsed": "Tiempo"
+  },
+  "chart": {
+    "errors": "Errores",
+    "xAxisLabel": "Tiempo (en segundos)"
   }
 }

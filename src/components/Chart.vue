@@ -5,8 +5,13 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import Chart from 'chart.js'
+
+const ERROR_INDEX = 0
+const WPM_INDEX = 1
+const CPM_INDEX = 2
 
 let chart
 
@@ -15,7 +20,8 @@ export default {
   computed: {
     ...mapGetters({
       cpmDataPoints: 'getCpmChartData',
-      wpmDataPoints: 'getWpmChartData'
+      wpmDataPoints: 'getWpmChartData',
+      errorDataPoints: 'getErrorChartData'
     })
   },
   mounted () {
@@ -23,11 +29,15 @@ export default {
   },
   watch: {
     wpmDataPoints: function (newWpmDataPoints) {
-      chart.data.datasets[0].data = newWpmDataPoints
+      chart.data.datasets[WPM_INDEX].data = newWpmDataPoints
       chart.update()
     },
     cpmDataPoints: function (newCpmDataPoints) {
-      chart.data.datasets[1].data = newCpmDataPoints
+      chart.data.datasets[CPM_INDEX].data = newCpmDataPoints
+      chart.update()
+    },
+    errorDataPoints: function (newErrorDataPoints) {
+      chart.data.datasets[ERROR_INDEX].data = newErrorDataPoints
       chart.update()
     }
   },
@@ -35,33 +45,46 @@ export default {
     createChart () {
       let ctx = document.getElementById('result-chart')
       chart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
+        labels: ['January'],
         data: {
+          labels: [],
           datasets: [
             {
+              type: 'bubble',
+              label: Vue.t('chart.errors'),
+              borderColor: 'rgba(199, 6, 6, 1)',
+              pointRadius: 5,
+              backgroundColor: 'rgba(199, 6, 6, 1)',
+              data: []
+            },
+            {
+              type: 'line',
               label: 'WPM',
               borderColor: 'rgba(44, 62, 80, 1)',
-              pointRadius: 2,
+              pointRadius: 0,
               backgroundColor: 'rgba(44, 62, 80, 0.4)',
               data: []
             },
             {
+              type: 'line',
               label: 'CPM',
               borderColor: 'rgba(4, 232, 142, 1)',
-              pointRadius: 2,
+              pointRadius: 0,
               backgroundColor: 'rgba(4, 232, 142, 0.4)',
               data: []
             }
           ]
         },
         options: {
+          barThickness: 20,
           scales: {
             xAxes: [{
               type: 'linear',
               position: 'bottom',
               scaleLabel: {
                 display: true,
-                labelString: 'Elapsed time (in seconds)'
+                labelString: Vue.t('chart.xAxisLabel')
               }
             }]
           }

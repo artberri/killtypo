@@ -3,7 +3,7 @@ import * as types from '../mutation-types'
 const state = {
   playing: false,
   startTime: 0,
-  wrong: 0,
+  wrong: [],
   timings: [],
   finished: false
 }
@@ -15,7 +15,7 @@ export default {
       state.playing = false
       state.startTime = 0
       state.timings = []
-      state.wrong = 0
+      state.wrong = []
       state.finished = false
     },
 
@@ -24,7 +24,7 @@ export default {
         state.playing = true
         state.startTime = Date.now()
         state.timings = []
-        state.wrong = 0
+        state.wrong = []
         state.finished = false
       }
     },
@@ -40,8 +40,11 @@ export default {
       state.timings.push(Date.now())
     },
 
-    [types.INCREMENT_WRONG] (state) {
-      state.wrong = state.wrong + 1
+    [types.INCREMENT_WRONG] (state, letter) {
+      state.wrong.push({
+        time: Date.now(),
+        letter: letter
+      })
     }
   }
 }

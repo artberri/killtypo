@@ -2,12 +2,12 @@
   <div class="container">
     <h2>{{ $t("mode.select") }}</h2>
     <div class="mode-buttons">
-      <a v-on:click="setMode(2)" :class="classActive(2)">{{ $t("mode.random") }}</a>
+      <a v-on:click="setMode(0)" :class="classActive(0)">{{ $t("mode.random") }}</a>
       <a v-on:click="setMode(1)" :class="classActive(1)">{{ $t("mode.paste") }}</a>
     </div>
     <div>
-      <textarea placeholder="Paste your text here" v-model="message" v-show="mode == 1"></textarea>
-      <textarea v-model="randomText" v-show="mode == 2"></textarea>
+      <textarea placeholder="Paste your text here" v-model="message" v-show="showPasteTextarea"></textarea>
+      <textarea v-model="randomText" v-show="showRandomTextarea"></textarea>
     </div>
     <div class="error" v-show="showError()">
       {{ $t("mode.minError", { minWordLimit }) }}
@@ -31,12 +31,14 @@ import settings from '../settings'
 import quotes from '../quotes/'
 import LanguageMixin from '../mixins/LanguageMixin'
 
+const MODE_RANDOM = 0
+const MODE_PASTE = 1
+
 export default {
   name: 'mode',
   mixins: [LanguageMixin],
   data () {
     return {
-      mode: 2,
       message: '',
       minWordLimit: settings.minWordLimit,
       maxWordLimit: settings.maxWordLimit
@@ -45,8 +47,15 @@ export default {
   computed: {
     ...mapState({
       wordLimit: state => state.options.wordLimit,
-      removeLineBreaks: state => state.options.removeLineBreaks
+      removeLineBreaks: state => state.options.removeLineBreaks,
+      mode: state => state.options.mode
     }),
+    showRandomTextarea () {
+      return this.mode === MODE_RANDOM
+    },
+    showPasteTextarea () {
+      return this.mode === MODE_PASTE
+    },
     words () {
       return this.message.split(' ')
     },
@@ -60,7 +69,8 @@ export default {
       'resetGame': types.RESET_GAME,
       'setLetters': types.SET_LETTERS,
       'setWordLimit': types.OPTION_WORDLIMIT,
-      'setRemoveLineBreaks': types.OPTION_REMOVELINEBREAKS
+      'setRemoveLineBreaks': types.OPTION_REMOVELINEBREAKS,
+      'setMode': types.OPTION_MODE
     }),
 
     updateWordLimit (e) {
@@ -77,10 +87,6 @@ export default {
       return texts[Math.floor(Math.random() * texts.length)]
     },
 
-    setMode (mode) {
-      this.mode = mode
-    },
-
     classActive (mode) {
       return {
         button: true,
@@ -90,7 +96,7 @@ export default {
     },
 
     showNext () {
-      return this.mode === 2 || (this.mode > 0 && this.message.length > 0 && this.words.length >= settings.minWordLimit)
+      return this.mode === MODE_RANDOM || (this.mode > 0 && this.message.length > 0 && this.words.length >= settings.minWordLimit)
     },
 
     showError () {
@@ -98,7 +104,7 @@ export default {
     },
 
     play () {
-      let message = this.mode === 2 ? this.randomText : this.message
+      let message = this.mode === MODE_RANDOM ? this.randomText : this.message
       let wordLimit = this.wordLimit
 
       if (this.wordLimit < settings.minWordLimit || this.wordLimit > settings.maxWordLimit) {

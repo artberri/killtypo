@@ -33,7 +33,6 @@ export default {
       return this.prepareAutocue(this.letters.wrong)
     },
     classObject () {
-      console.log(this.isError + '--')
       return {
         autocue: true,
         error: this.isError
@@ -43,7 +42,6 @@ export default {
   watch: {
     lettersWrong: function (val) {
       if (val.length > lastErrorCount) {
-        console.log(this.isError)
         this.isError = true
         setTimeout(() => {
           this.isError = false

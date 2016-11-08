@@ -4,7 +4,8 @@ function getGameData (state) {
     charAmount: state.game.timings.length,
     lastTime: state.game.timings.length > 0 ? state.game.timings[state.game.timings.length - 1] : 0,
     startTime: state.game.startTime,
-    wrongAmount: state.game.wrong
+    wrongAmount: state.game.wrong.length,
+    wrongs: state.game.wrong
   }
 }
 
@@ -103,6 +104,25 @@ export const getCpmChartData = state => {
     dataPoints.push({
       x: seconds.toFixed(2),
       y: cpm
+    })
+  }
+
+  return dataPoints
+}
+
+export const getErrorChartData = state => {
+  let data = getGameData(state)
+  let dataPoints = []
+
+  for (let i = 0; i < data.wrongAmount; i++) {
+    let wrongLetter = data.wrongs[i]
+    let seconds = getDelta(data.startTime, wrongLetter.time, false)
+
+    dataPoints.push({
+      x: seconds.toFixed(2),
+      y: 0,
+      r: 5,
+      letter: wrongLetter.letter
     })
   }
 

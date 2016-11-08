@@ -84,6 +84,7 @@ textarea {
   left: 0;
   z-index: 5;
   background: #fff;
+  overflow-y: scroll;
 }
 
 textarea.full,

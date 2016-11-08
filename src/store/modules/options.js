@@ -3,7 +3,8 @@ import settings from '../../settings'
 
 const state = {
   removeLineBreaks: true,
-  wordLimit: settings.defaultWordLimit
+  wordLimit: settings.defaultWordLimit,
+  mode: 0
 }
 
 export default {
@@ -15,6 +16,10 @@ export default {
 
     [types.OPTION_REMOVELINEBREAKS] (state, removeLineBreaks) {
       state.removeLineBreaks = !!removeLineBreaks
+    },
+
+    [types.OPTION_MODE] (state, mode) {
+      state.mode = parseInt(mode, 10)
     }
   }
 }
