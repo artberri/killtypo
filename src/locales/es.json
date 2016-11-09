@@ -25,6 +25,7 @@
   },
   "chart": {
     "errors": "Errores",
-    "xAxisLabel": "Tiempo (en segundos)"
+    "xAxisLabel": "Tiempo (en segundos)",
+    "tooltipWrong": "Letra fallada:"
   }
 }

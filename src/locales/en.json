@@ -25,6 +25,7 @@
   },
   "chart": {
     "errors": "Errors",
-    "xAxisLabel": "Elapsed time (in seconds)"
+    "xAxisLabel": "Elapsed time (in seconds)",
+    "tooltipWrong": "Failed letter:"
   }
 }

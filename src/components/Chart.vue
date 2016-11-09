@@ -78,6 +78,21 @@ export default {
         },
         options: {
           barThickness: 20,
+          tooltips: {
+            callbacks: {
+              title (tooltip, data) {
+                return Vue.t('chart.tooltipWrong')
+              },
+              label (tooltip, data) {
+                let datasetIndex = tooltip.datasetIndex
+                let dataIndex = tooltip.index
+                let dataset = data.datasets[datasetIndex]
+                let wrongLetter = dataset.data[dataIndex]
+
+                return wrongLetter.letter
+              }
+            }
+          },
           scales: {
             xAxes: [{
               type: 'linear',

@@ -25,8 +25,12 @@ export const pressKey = ({ commit, state }, event) => {
   wrongAmount = content.length - (message.length - response.left.length)
   if (wrongAmount > 0) {
     if (keyCode !== 8) { // Not back space
-      let wrongLetter = content.slice(-1)
-      commit(types.INCREMENT_WRONG, wrongLetter)
+      if (wrongAmount > 1) {
+        commit(types.INCREMENT_SOFT_WRONG)
+      } else {
+        let wrongLetter = response.left.slice(0, 1)
+        commit(types.INCREMENT_WRONG, wrongLetter)
+      }
     }
     response.wrong = response.left.substring(0, wrongAmount)
     response.left = response.left.substring(wrongAmount)

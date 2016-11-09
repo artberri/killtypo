@@ -5,7 +5,8 @@ function getGameData (state) {
     lastTime: state.game.timings.length > 0 ? state.game.timings[state.game.timings.length - 1] : 0,
     startTime: state.game.startTime,
     wrongAmount: state.game.wrong.length,
-    wrongs: state.game.wrong
+    wrongs: state.game.wrong,
+    softs: state.game.softs
   }
 }
 
@@ -49,7 +50,7 @@ export const getCpm = state => {
 
 export const getAccuracy = state => {
   let data = getGameData(state)
-  let accuracy = data.charAmount / (data.charAmount + data.wrongAmount) * 100
+  let accuracy = (data.charAmount - data.wrongAmount - data.softs * 0.1) / data.charAmount * 100
 
   if (!accuracy) {
     accuracy = 100
@@ -118,10 +119,12 @@ export const getErrorChartData = state => {
     let wrongLetter = data.wrongs[i]
     let seconds = getDelta(data.startTime, wrongLetter.time, false)
 
+    console.log(wrongLetter)
+
     dataPoints.push({
       x: seconds.toFixed(2),
       y: 0,
-      r: 5,
+      r: 7,
       letter: wrongLetter.letter
     })
   }

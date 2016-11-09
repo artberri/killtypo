@@ -5,7 +5,8 @@ const state = {
   startTime: 0,
   wrong: [],
   timings: [],
-  finished: false
+  finished: false,
+  softs: 0
 }
 
 export default {
@@ -17,6 +18,7 @@ export default {
       state.timings = []
       state.wrong = []
       state.finished = false
+      state.softs = 0
     },
 
     [types.START_GAME] (state) {
@@ -26,6 +28,7 @@ export default {
         state.timings = []
         state.wrong = []
         state.finished = false
+        state.softs = 0
       }
     },
 
@@ -45,6 +48,10 @@ export default {
         time: Date.now(),
         letter: letter
       })
+    },
+
+    [types.INCREMENT_SOFT_WRONG] (state) {
+      state.softs = state.softs + 1
     }
   }
 }
