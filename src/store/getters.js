@@ -119,8 +119,6 @@ export const getErrorChartData = state => {
     let wrongLetter = data.wrongs[i]
     let seconds = getDelta(data.startTime, wrongLetter.time, false)
 
-    console.log(wrongLetter)
-
     dataPoints.push({
       x: seconds.toFixed(2),
       y: 0,

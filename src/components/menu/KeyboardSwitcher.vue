@@ -1,49 +1,54 @@
 <template>
   <ul>
-    <li><i class="fa fa-language" aria-hidden="true"></i> &nbsp; {{ selected.name }}</li>
-    <li v-for="lang in list" :lang="lang"><a v-on:click="setLanguage(lang.code)"><i></i> {{ lang.name }}</a></li>
+    <li><i class="fa fa-keyboard-o" aria-hidden="true"></i></i> &nbsp; {{ selected.name }}</li>
+    <li v-for="keyboard in list" :keyboard="keyboard"><a v-on:click="setKeyboard(keyboard.code)"><i></i> {{ keyboard.name }}</a></li>
   </ul>
 </template>
 
 <script>
-import LanguageMixin from '../mixins/LanguageMixin'
+import { mapMutations } from 'vuex'
+import * as types from '../../store/mutation-types'
+import LanguageMixin from '../../mixins/LanguageMixin'
 
 export default {
-  name: 'language-switcher',
+  name: 'keyboard-switcher',
   mixins: [LanguageMixin],
   data () {
     return {
-      languages: [
+      keyboards: [
         {
-          code: 'en',
-          name: 'English'
+          code: 'qwertyus',
+          name: 'QWERTY-US'
         },
         {
-          code: 'es',
-          name: 'Español'
+          code: 'qwertyes',
+          name: 'QWERTY-ES'
         }
       ]
     }
   },
   computed: {
+    keyboard () {
+      return this.$store.state.options.keyboard
+    },
     selected () {
-      let langs = this.languages
-      let language = langs[0]
+      let keyboards = this.keyboards
+      let keyboard = keyboards[0]
 
-      langs.forEach(lang => {
-        if (lang.code === this.language) {
-          language = lang
+      keyboards.forEach(keyb => {
+        if (keyb.code === this.keyboard) {
+          keyboard = keyb
         }
       })
 
-      return language
+      return keyboard
     },
     list () {
       let response = []
 
-      this.languages.forEach(lang => {
-        if (lang.code !== this.language) {
-          response.push(lang)
+      this.keyboards.forEach(keyb => {
+        if (keyb.code !== this.keyboard) {
+          response.push(keyb)
         }
       })
 
@@ -51,12 +56,9 @@ export default {
     }
   },
   methods: {
-    setLanguage (language) {
-      let name = this.$route.name
-
-      name = name.substr(0, name.lastIndexOf('-')) + '-' + language
-      this.$router.push({ name: name })
-    }
+    ...mapMutations({
+      'setKeyboard': types.OPTION_KEYBOARD
+    })
   }
 }
 </script>
@@ -66,7 +68,7 @@ ul {
   position: relative;
   z-index: 50;
   float: right;
-  width: 120px;
+  width: 140px;
   margin: 0;
   padding: 0;
 

@@ -1,6 +1,7 @@
 export const OPTION_WORDLIMIT = 'option/OPTION_WORDLIMIT'
 export const OPTION_REMOVELINEBREAKS = 'option/OPTION_REMOVELINEBREAKS'
 export const OPTION_MODE = 'option/OPTION_MODE'
+export const OPTION_KEYBOARD = 'option/OPTION_KEYBOARD'
 
 export const SET_MESSAGE = 'autocue/SET_MESSAGE'
 export const SET_LASTKEY_EVENT = 'autocue/SET_LASTKEY_EVENT'

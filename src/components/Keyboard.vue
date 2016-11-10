@@ -7,17 +7,18 @@
 
 <script>
 import Key from './keyboard/Key'
-import keyboard from '../keyboards/qwerty.json'
+import keyboards from '../keyboards/'
 
 export default {
   name: 'keyboard',
   components: {
     Key
   },
-  data () {
-    return {
-      keys: keyboard.keys,
-      msg: 'Welcome to Your Vue.js App'
+  computed: {
+    keys () {
+      let keyboard = this.$store.state.options.keyboard
+
+      return keyboards[keyboard].keys
     }
   }
 }

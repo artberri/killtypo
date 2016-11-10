@@ -4,7 +4,8 @@ import settings from '../../settings'
 const state = {
   removeLineBreaks: true,
   wordLimit: settings.defaultWordLimit,
-  mode: 0
+  mode: 0,
+  keyboard: 'qwertyus'
 }
 
 export default {
@@ -20,6 +21,10 @@ export default {
 
     [types.OPTION_MODE] (state, mode) {
       state.mode = parseInt(mode, 10)
+    },
+
+    [types.OPTION_KEYBOARD] (state, keyboard) {
+      state.keyboard = keyboard
     }
   }
 }

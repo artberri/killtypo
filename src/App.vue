@@ -2,6 +2,7 @@
   <div id="app">
     <header class="header">
       <div class="container">
+        <keyboard-switcher></keyboard-switcher>
         <language-switcher></language-switcher>
         <h1>
           <router-link :to="{ name: 'home-' + language }">
@@ -19,7 +20,8 @@
 
 <script>
 import LanguageMixin from './mixins/LanguageMixin'
-import LanguageSwitcher from './components/LanguageSwitcher'
+import LanguageSwitcher from './components/menu/LanguageSwitcher'
+import KeyboardSwitcher from './components/menu/KeyboardSwitcher'
 import MyFooter from './components/MyFooter'
 
 export default {
@@ -27,6 +29,7 @@ export default {
   mixins: [LanguageMixin],
   components: {
     LanguageSwitcher,
+    KeyboardSwitcher,
     MyFooter
   }
 }

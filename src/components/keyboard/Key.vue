@@ -26,6 +26,7 @@ export default {
       let classes = {
         key: true,
         dual: this.keyobj.dual,
+        trial: this.keyobj.trial,
         slash: this.keyobj.slash,
         left: this.keyobj.left,
         right: this.keyobj.right,
@@ -40,7 +41,14 @@ export default {
     },
 
     html () {
-      return this.keyobj.letters.join('<br>').replace(' ', '&nbsp;')
+      let letters = this.keyobj.letters
+      let response = letters.join('<br>').replace(' ', '&nbsp;')
+
+      if (this.keyobj.trial) {
+        response = letters[0] + '<br>' + letters[1] + '&nbsp;&nbsp;' + letters[2]
+      }
+
+      return response
     }
   }
 }
@@ -65,7 +73,8 @@ export default {
   transition: box-shadow .7s ease;
 }
 
-.dual {
+.dual,
+.trial {
   font-size: 14px;
   line-height: 20px;
   width: 30px;
