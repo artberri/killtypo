@@ -64,7 +64,7 @@ export default {
 <style scoped>
 .autocue {
   position: relative;
-  margin: 0 auto;
+  margin: 30px auto 0;
   text-align: left;
   width: 616px;
   height: 70px;

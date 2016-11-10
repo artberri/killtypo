@@ -64,7 +64,7 @@ export default {
 <style scoped>
 ul {
   position: relative;
-  z-index: 5;
+  z-index: 50;
   float: right;
   width: 120px;
   margin: 0;
@@ -95,7 +95,7 @@ ul {
   &:hover li {
     display: block;
     padding-left: 0;
-    background: #425D77;
+    background: #417CB7;
     color: #fff;
 
     &:first-child {

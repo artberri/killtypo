@@ -1,9 +1,10 @@
 :root {
   --white: #fff;
-  --green: #04E88E;
+  --green: #01D263;
   --border: #ddd;
   --mainColor: #2c3e50;
   --grey: #9899A2;
+  --blue: #417CB7;
 }
 
 * {
@@ -82,6 +83,11 @@ textarea {
       color: var(--mainColor);
       text-decoration: none;
     }
+
+    img {
+      position: relative;
+      top: 7px;
+    }
   }
 }
 
@@ -118,7 +124,7 @@ textarea {
 }
 
 .content {
-  padding-top: 100px;
+  padding-top: 70px;
 }
 
 .home-claim {
@@ -180,6 +186,10 @@ textarea:focus {
 
 .green {
   color: var(--green);
+}
+
+.blue {
+  color: var(--blue);
 }
 
 .switch {

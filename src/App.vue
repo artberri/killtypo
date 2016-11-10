@@ -3,7 +3,11 @@
     <header class="header">
       <div class="container">
         <language-switcher></language-switcher>
-        <h1><router-link :to="{ name: 'home-' + language }">KillTypo</router-link></h1>
+        <h1>
+          <router-link :to="{ name: 'home-' + language }">
+            <img src="./assets/key.png" height="40" width="40"> K<span class="blue">ill</span>T<span class="blue">ypo</span>
+          </router-link>
+        </h1>
       </div>
     </header>
     <div class="content">
