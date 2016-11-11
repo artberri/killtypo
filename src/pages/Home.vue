@@ -21,33 +21,23 @@
       <div class="pure-g">
           <div class="pure-u-1-3">
             <div class="container">
-              <h3>Easy</h3>
+              <h3>{{ $t("home.easy") }}</h3>
               <p class="icon"><i class="fa fa-child" aria-hidden="true"></i></p>
-              <p>
-                This project has been developed by Alberto Varela in order to learn and test the VueJS JavaScript Framework. I'll try
-                to improve it little by little, but you can help also, it is Free Software.
-              </p>
+              <p>{{ $t("home.easytext") }}</p>
             </div>
           </div>
           <div class="pure-u-1-3">
             <div class="container">
-              <h3>Real</h3>
+              <h3>{{ $t("home.real") }}</h3>
               <p class="icon"><i class="fa fa-keyboard-o" aria-hidden="true"></i></p>
-              <p>
-                Do you want to improve this page or help me writting better code? If you have software development experience
-                or if you are willing to make some translations, consider contributing to KillTypo.
-              </p>
+              <p>{{ $t("home.realtext") }}</p>
             </div>
           </div>
           <div class="pure-u-1-3">
             <div class="container">
-              <h3>Amusing</h3>
+              <h3>{{ $t("home.amusing") }}</h3>
               <p class="icon"><i class="fa fa-gamepad" aria-hidden="true"></i></p>
-              <p>
-                Copyright &copy; 2016 Alberto Varela. All rights reserved.
-                <br><br>
-                All code on this site is licensed under the GNU/GPL License unless otherwise stated.
-              </p>
+              <p>{{ $t("home.amusingtext") }}</p>
             </div>
           </div>
       </div>
@@ -108,6 +98,10 @@ export default {
     background: #2c3e50;
     color: #fff;
     border-radius: 50px;
+  }
+
+  p {
+    font-size: 1.1rem;
   }
 }
 

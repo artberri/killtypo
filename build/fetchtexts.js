@@ -21,7 +21,7 @@ for (let j = 0; j < wikis.length; j++) {
   let wiki = wikis[j].obj;
   let lang = wikis[j].lang;
 
-  wiki.random(100).then((data) => {
+  wiki.random(1000).then((data) => {
     let i;
     let requests = [];
 

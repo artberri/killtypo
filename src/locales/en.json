@@ -1,8 +1,14 @@
 {
   "home": {
     "claim": "Practice Typing And Get Fun",
-    "sentence": "KillTypo is a training tool for typing. You will be able to practice and evaluate your self by writting real news or your own texts.",
-    "cta": "Start Writting"
+    "sentence": "KillTypo is a training tool for typing. You will be able to practice and evaluate your self by writting pieces from Wikipedia or your own texts.",
+    "cta": "Start Writting",
+    "easy": "Easy",
+    "easytext": "Start practicing right now, it's free and you don't have to register. Our unique 'teleprompter' will ease your reading and will let you concentrate on typing.",
+    "real": "Real",
+    "realtext": "Sorry, typos are not permitted here. We believe on real training, so, you will need to use backspace to fix your errors in order to complete the game.",
+    "amusing": "Amusing",
+    "amusingtext": "Challenge your friends or try to beat yourself. You will be able to store your progress, share your marks and win badges. Will you attain the top ten?"
   },
   "mode": {
     "select": "Select Mode",

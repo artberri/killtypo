@@ -7,7 +7,7 @@
               <div class="container">
                 <h3>About KillTypo</h3>
                 <p>
-                  This project has been developed by Alberto Varela in order to learn and test the VueJS JavaScript Framework. I'll try
+                  This project has been developed by <a href="http://www.berriart.com/">Alberto Varela</a> in order to learn and test the VueJS JavaScript Framework. I'll try
                   to improve it little by little, but you can help also, it is Free Software.
                 </p>
               </div>
@@ -23,6 +23,10 @@
             </div>
             <div class="pure-u-1-3">
               <div class="container">
+                <h3>Contact</h3>
+                <p>
+                  <a href="http://www.berriart.com">hello@killtypo.com</a>
+                </p>
                 <p class="copy">
                   Copyright &copy; 2016 Alberto Varela. All rights reserved.
                   <br><br>
@@ -46,9 +50,3 @@ export default {
   name: 'my-footer'
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-
-</style>

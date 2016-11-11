@@ -13,6 +13,7 @@
 
 body {
   font-family: 'PT Sans', sans-serif;
+  background: #253444;
 }
 
 p,
@@ -92,11 +93,10 @@ textarea {
 }
 
 .footer {
-  margin-top: 100px;
   padding: 30px 0;
   font-family: "ProximaNova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: #343434;
-  color: #cccccc;
+  background: #253444;
+  color: #ccc;
   text-align: left;
 
   .miniclaim {
@@ -107,15 +107,19 @@ textarea {
     color: #888;
   }
 
+  a {
+    color: #ccc;
+  }
+
   h3 {
     font-weight: bold;
     font-size: 1rem;
-    color: #cccccc;
+    color: #ccc;
   }
 
   p {
     font-size: 1rem;
-    color: #cccccc;
+    color: #ccc;
   }
 
   .copy {
@@ -124,7 +128,8 @@ textarea {
 }
 
 .content {
-  padding-top: 70px;
+  padding: 70px 0;
+  background: #fff;
 }
 
 .home-claim {
