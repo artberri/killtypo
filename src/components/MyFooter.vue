@@ -5,25 +5,19 @@
         <div class="pure-g">
             <div class="pure-u-1-3">
               <div class="container">
-                <h3>About KillTypo</h3>
-                <p>
-                  This project has been developed by <a href="http://www.berriart.com/">Alberto Varela</a> in order to learn and test the VueJS JavaScript Framework. I'll try
-                  to improve it little by little, but you can help also, it is Free Software.
-                </p>
+                <h3>{{ $t("footer.about") }}</h3>
+                <p v-html="$t('footer.abouttext')"></p>
               </div>
             </div>
             <div class="pure-u-1-3">
               <div class="container">
-                <h3>Become a Contributor</h3>
-                <p>
-                  Do you want to improve this page or help me writting better code? If you have software development experience
-                  or if you are willing to make some translations, consider contributing to KillTypo.
-                </p>
+                <h3>{{ $t("footer.contribute") }}</h3>
+                <p v-html="$t('footer.contributetext')"></p>
               </div>
             </div>
             <div class="pure-u-1-3">
               <div class="container">
-                <h3>Contact</h3>
+                <h3>{{ $t("footer.contact") }}</h3>
                 <p>
                   <a href="http://www.berriart.com">hello@killtypo.com</a>
                 </p>

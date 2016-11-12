@@ -13,12 +13,9 @@
       {{ $t("mode.minError", { minWordLimit }) }}
     </div>
     <div class="next-container" v-show="showNext()">
-      <label for="word-range" class="real-label">{{ $t("mode.trim", { wordLimit }) }}</label>
-      <input id="word-range" type="range" :value="wordLimit" @input="updateWordLimit" :min="minWordLimit" :max="maxWordLimit">
+      <word-range></word-range>
       <br><br>
-      <input id="remove-intros" v-on:change="updateRemoveLineBreaks" :checked="removeLineBreaks" type="checkbox" class="switch">
-      <label for="remove-intros" class="switch-label"></label>
-      <label for="remove-intros" class="real-label">{{ $t("mode.lineBreak") }}</label>
+      <remove-intros></remove-intros>
     </div>
     <a class="next button" v-on:click="play()" v-show="showNext()">{{ $t("mode.next") }}</a>
   </div>
@@ -30,6 +27,8 @@ import * as types from '../store/mutation-types'
 import settings from '../settings'
 import quotes from '../quotes/'
 import LanguageMixin from '../mixins/LanguageMixin'
+import WordRange from '../components/mode/WordRange'
+import RemoveIntros from '../components/mode/RemoveIntros'
 
 const MODE_RANDOM = 0
 const MODE_PASTE = 1
@@ -37,11 +36,13 @@ const MODE_PASTE = 1
 export default {
   name: 'mode',
   mixins: [LanguageMixin],
+  components: {
+    WordRange,
+    RemoveIntros
+  },
   data () {
     return {
-      message: '',
-      minWordLimit: settings.minWordLimit,
-      maxWordLimit: settings.maxWordLimit
+      message: ''
     }
   },
   computed: {
@@ -68,18 +69,8 @@ export default {
       'setMessage': types.SET_MESSAGE,
       'resetGame': types.RESET_GAME,
       'setLetters': types.SET_LETTERS,
-      'setWordLimit': types.OPTION_WORDLIMIT,
-      'setRemoveLineBreaks': types.OPTION_REMOVELINEBREAKS,
       'setMode': types.OPTION_MODE
     }),
-
-    updateWordLimit (e) {
-      this.setWordLimit(e.target.value)
-    },
-
-    updateRemoveLineBreaks (e) {
-      this.setRemoveLineBreaks(e.target.checked)
-    },
 
     randomQuote () {
       let texts = quotes[this.language]
@@ -154,10 +145,6 @@ textarea {
 .next-container {
   margin: 30px auto 0;
   width: 634px;
-}
-
-.real-label {
-  font-size: 1.6rem;
 }
 
 .next {

@@ -148,6 +148,10 @@ textarea {
   font-weight: bold;
 }
 
+.real-label {
+  font-size: 1.6rem;
+}
+
 .button {
   display: inline-block;
   cursor: pointer;
