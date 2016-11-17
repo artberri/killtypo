@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import BlinkingCursor from './autoclue/BlinkingCursor'
-import Letter from './autoclue/Letter'
+import BlinkingCursor from './autocue/BlinkingCursor'
+import Letter from './autocue/Letter'
 
 let lastErrorCount = 0
 

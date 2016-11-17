@@ -1,5 +1,7 @@
 // Polyfill fn.bind() for PhantomJS
 /* eslint-disable no-extend-native */
+import 'babel-polyfill'
+
 Function.prototype.bind = require('function-bind')
 
 // require all test files (files that ends with .spec.js)
@@ -9,5 +11,5 @@ testsContext.keys().forEach(testsContext)
 // require all src files except main.js for coverage.
 // you can also change this to match only the subset of files that
 // you want coverage for.
-const srcContext = require.context('../../src', true, /^\.\/(?!main(\.js)?$)/)
+const srcContext = require.context('../../src', true, /^\.\/(?!(main|sw)(\.js)?$|)/)
 srcContext.keys().forEach(srcContext)

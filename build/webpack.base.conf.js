@@ -13,6 +13,7 @@ var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
 module.exports = {
   entry: {
+    polyfill: 'babel-polyfill',
     app: './src/main.js'
   },
   output: {

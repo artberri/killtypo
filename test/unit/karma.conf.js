@@ -58,7 +58,8 @@ module.exports = function (config) {
     reporters: ['spec', 'coverage'],
     files: ['./index.js'],
     preprocessors: {
-      './index.js': ['webpack', 'sourcemap']
+      './index.js': ['webpack', 'sourcemap'],
+      '../../src/**/*.vue': ['coverage']
     },
     webpack: webpackConfig,
     webpackMiddleware: {
@@ -66,6 +67,7 @@ module.exports = function (config) {
     },
     coverageReporter: {
       dir: './coverage',
+      includeAllSources: true,
       reporters: [
         { type: 'lcov', subdir: '.' },
         { type: 'text-summary' }
