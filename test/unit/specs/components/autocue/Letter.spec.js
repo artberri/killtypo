@@ -1,1 +1,3 @@
-import BlinkingCursor from 'src/components/autocue/Letter'
+import Letter from 'src/components/autocue/Letter'
+
+Letter

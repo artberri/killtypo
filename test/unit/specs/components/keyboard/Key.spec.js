@@ -21,8 +21,8 @@ function getComponent (Component, propsData, autocueState) {
       keyCode: 49
     }
   }
-  autocueState = autocueState ? autocueState : defaultState
-  propsData = propsData ? propsData : defaultProps
+  autocueState = autocueState || defaultState
+  propsData = propsData || defaultProps
 
   const Ctor = Vue.extend(Component)
   const vm = new Ctor({
@@ -292,7 +292,6 @@ describe('Key.vue', () => {
         expect(vm.classObject.next)
           .to.equal(false)
       })
-
 
       it('should return the next class when the game is started and the key is next', () => {
         const vm = getComponent(Key,
