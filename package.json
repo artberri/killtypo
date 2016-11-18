@@ -4,6 +4,10 @@
   "description": "A Vue.js project",
   "author": "",
   "private": true,
+  "engines" : {
+    "node" : ">=6.0.0"
+  },
+  "engineStrict" : true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "npm run quotes && node build/build.js",
@@ -75,6 +79,8 @@
     "shelljs": "^0.7.4",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0",
+    "sw-precache": "^4.2.1",
+    "sw-precache-webpack-plugin": "^0.6.1",
     "url-loader": "^0.5.7",
     "vue-loader": "^9.4.0",
     "vue-style-loader": "^1.0.0",

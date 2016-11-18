@@ -9,11 +9,12 @@ import locales from './locales/'
 import Home from './pages/Home'
 import Game from './pages/Game'
 import Mode from './pages/Mode'
-// import runtime from 'serviceworker-webpack-plugin/lib/runtime'
 
-// if ('serviceWorker' in navigator) {
-  // runtime.register()
-// }
+const DEBUG = process.env.NODE_ENV !== 'production'
+
+if (!DEBUG && 'serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js')
+}
 
 Vue.use(VueRouter)
 Vue.use(VueI18n)

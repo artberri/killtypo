@@ -42,6 +42,9 @@ export default {
   },
   data () {
     return {
+      minWordLimit: settings.minWordLimit,
+      maxWordLimit: settings.maxWordLimit,
+      defaultWordLimit: settings.defaultWordLimit,
       message: ''
     }
   },
@@ -87,19 +90,19 @@ export default {
     },
 
     showNext () {
-      return this.mode === MODE_RANDOM || (this.mode > 0 && this.message.length > 0 && this.words.length >= settings.minWordLimit)
+      return this.mode === MODE_RANDOM || (this.mode > 0 && this.message.length > 0 && this.words.length >= this.minWordLimit)
     },
 
     showError () {
-      return this.mode > 0 && this.message.length > 0 && this.words.length < settings.minWordLimit
+      return this.mode > 0 && this.message.length > 0 && this.words.length < this.minWordLimit
     },
 
     play () {
       let message = this.mode === MODE_RANDOM ? this.randomText : this.message
       let wordLimit = this.wordLimit
 
-      if (this.wordLimit < settings.minWordLimit || this.wordLimit > settings.maxWordLimit) {
-        wordLimit = settings.defaultWordLimit
+      if (this.wordLimit < this.minWordLimit || this.wordLimit > this.maxWordLimit) {
+        wordLimit = this.defaultWordLimit
       }
 
       if (this.removeLineBreaks) {

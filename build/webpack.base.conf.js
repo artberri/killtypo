@@ -1,7 +1,7 @@
 var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
-var ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
+var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 var projectRoot = path.resolve(__dirname, '../')
 
 var env = process.env.NODE_ENV
@@ -19,7 +19,7 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
-    filename: '[name].js'
+    filename: '[name]-[hash].js',
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
@@ -96,8 +96,20 @@ module.exports = {
     ]
   },
   plugins: [
-    new ServiceWorkerWebpackPlugin({
-      entry: path.join(__dirname, '../src/sw.js'),
-    }),
+    new SWPrecacheWebpackPlugin({
+      cacheId: 'killtypo',
+      filename: 'service-worker.js',
+      maximumFileSizeToCacheInBytes: 4194304,
+      runtimeCaching: [
+        {
+          handler: 'cacheFirst',
+          urlPattern: /\//,
+        },
+        {
+          handler: 'cacheFirst',
+          urlPattern: /[.](js|html|css|png|jpg|gif|svg|eot|ttf|woff|ogv|webm|mp4)$/,
+        }
+      ],
+    })
   ]
 }
