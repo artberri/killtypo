@@ -102,7 +102,7 @@ module.exports = {
       maximumFileSizeToCacheInBytes: 4194304,
       runtimeCaching: [
         {
-          handler: 'cacheFirst',
+          handler: 'networkFirst',
           urlPattern: /\//,
         },
         {
