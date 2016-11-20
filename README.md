@@ -20,19 +20,19 @@ Feel free to contribute.
 
 ``` bash
 # install dependencies
-yarn install
+npm install
 
 # serve with hot reload at localhost:8080
-yarn run dev
+npm run dev
 
 # fetch texts from wikipedia
-yarn run quotes
+npm run quotes
 
 # build for production with minification
-yarn run build
+npm run build
 
 # run unit tests
-yarn run unit
+npm run unit
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/)

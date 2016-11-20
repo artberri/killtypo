@@ -2,6 +2,7 @@ var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
 var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+var PrerenderSpaPlugin = require('prerender-spa-plugin')
 var projectRoot = path.resolve(__dirname, '../')
 
 var env = process.env.NODE_ENV
@@ -110,6 +111,20 @@ module.exports = {
           urlPattern: /[.](js|html|css|png|jpg|gif|svg|eot|ttf|woff|ogv|webm|mp4)$/,
         }
       ],
-    })
+    }),
+    new PrerenderSpaPlugin(
+      // Path to compiled app
+      path.join(__dirname, '../dist'),
+      // List of endpoints you wish to prerender
+      [
+        '/',
+        '/404',
+        '/es',
+        '/mode',
+        '/es/mode',
+        '/game',
+        '/es/game'
+      ]
+    )
   ]
 }
