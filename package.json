@@ -10,12 +10,13 @@
   "engineStrict": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "npm run quotes && node build/build.js",
+    "build": "node build/build.js",
     "unit": "karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "quotes": "node build/fetchtexts.js",
+    "predeploy": "npm run quotes && npm run unit && npm run build",
     "deploy": "./node_modules/flightplan/bin/fly.js deploy:production"
   },
   "dependencies": {
