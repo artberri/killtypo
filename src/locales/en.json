@@ -5,10 +5,16 @@
     "cta": "Start Writting",
     "easy": "Easy",
     "easytext": "Start practicing right now, it's free and you don't have to register. Our unique 'teleprompter' will ease your reading and will let you concentrate on typing.",
+    "offline": "Offline",
+    "offlinetext": "Do you have a modern browser? That's all you need to enjoy KillTypo offline. You can try it just right now, switch off your connection and refresh the page.",
     "real": "Real",
-    "realtext": "Sorry, typos are not permitted here. We believe on real training, so, you will need to use backspace to fix your errors in order to complete the game.",
+    "realtext": "Sorry, typos are not permitted here. We believe on real training, so, you will need to use backspace to fix your typos in order to complete the game.",
+    "free": "Free",
+    "freetext": "We will let you practicing typing for free forever, we promise it. If this webpage becomes popular, we will probably add some premium features or ads, but there will be always a free option.",
+    "open": "Open",
+    "opentext": "This application is not just Open Source but also Free Software. Feel free to help us improving the website, we will absolutely apreciate it.",
     "amusing": "Amusing",
-    "amusingtext": "Challenge your friends or try to beat yourself. You will be able to store your progress, share your marks and win badges. Will you attain the top ten?"
+    "amusingtext": "Challenge your friends or try to beat yourself. You will be able to store your progress, share your marks and win badges. Will you attain the top ten? (Coming soon)"
   },
   "mode": {
     "select": "Select Mode",
@@ -38,7 +44,12 @@
     "about": "About KillTypo",
     "abouttext": "This project has been developed by <a href=\"http://www.berriart.com/\">Alberto Varela</a> in order to learn and test the VueJS JavaScript Framework. I'll try to improve it little by little, but you can help also, it is Free Software.",
     "contribute": "Become a Contributor",
-    "contributetext": " Do you want to improve this page or help me writting better code? If you have software development experience or if you are willing to make some translations, consider contributing to KillTypo.",
+    "contributetext": " Do you want to improve this page or help me writting better code? If you have software development experience or if you are willing to make some translations, consider <a href=\"https://github.com/artberri/killtypo/blob/master/CONTRIBUTING.md\">contributing to KillTypo</a>.",
     "contact": "Contact"
+  },
+  "notFound": {
+    "notFound": "404",
+    "pageNotFound": "Page not found",
+    "goHome": "Go to homepage"
   }
 }

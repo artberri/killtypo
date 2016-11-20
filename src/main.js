@@ -9,6 +9,7 @@ import locales from './locales/'
 import Home from './pages/Home'
 import Game from './pages/Game'
 import Mode from './pages/Mode'
+import NotFound from './pages/NotFound'
 
 const DEBUG = process.env.NODE_ENV !== 'production'
 
@@ -68,6 +69,22 @@ const routes = [
     name: 'mode-es',
     meta: {
       lang: 'es'
+    }
+  },
+  {
+    path: '/es/*',
+    component: NotFound,
+    name: 'notfound-es',
+    meta: {
+      lang: 'es'
+    }
+  },
+  {
+    path: '*',
+    component: NotFound,
+    name: 'notfound-en',
+    meta: {
+      lang: 'en'
     }
   }
 ]

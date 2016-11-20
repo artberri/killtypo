@@ -35,6 +35,29 @@
           </div>
           <div class="pure-u-1-3">
             <div class="container">
+              <h3>{{ $t("home.offline") }}</h3>
+              <p class="icon"><i class="fa fa-download" aria-hidden="true"></i></i></p>
+              <p>{{ $t("home.offlinetext") }}</p>
+            </div>
+          </div>
+      </div>
+      <div class="pure-g">
+          <div class="pure-u-1-3">
+            <div class="container">
+              <h3>{{ $t("home.free") }}</h3>
+              <p class="icon"><i class="fa fa-money" aria-hidden="true"></i></i></p>
+              <p>{{ $t("home.freetext") }}</p>
+            </div>
+          </div>
+          <div class="pure-u-1-3">
+            <div class="container">
+              <h3>{{ $t("home.open") }}</h3>
+              <p class="icon"><i class="fa fa-code" aria-hidden="true"></i></p>
+              <p>{{ $t("home.opentext") }}</p>
+            </div>
+          </div>
+          <div class="pure-u-1-3">
+            <div class="container">
               <h3>{{ $t("home.amusing") }}</h3>
               <p class="icon"><i class="fa fa-gamepad" aria-hidden="true"></i></p>
               <p>{{ $t("home.amusingtext") }}</p>
