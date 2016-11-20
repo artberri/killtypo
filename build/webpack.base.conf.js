@@ -121,9 +121,9 @@ module.exports = {
         '/404',
         '/es',
         '/mode',
-        '/es/mode',
+        '/es/modo',
         '/game',
-        '/es/game'
+        '/es/juego'
       ]
     )
   ]

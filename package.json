@@ -16,7 +16,7 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "quotes": "node build/fetchtexts.js",
-    "predeploy": "npm run quotes && npm run unit && npm run build",
+    "prepare": "npm run quotes && npm run unit && npm run build",
     "deploy": "./node_modules/flightplan/bin/fly.js deploy:production"
   },
   "dependencies": {
