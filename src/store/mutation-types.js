@@ -15,3 +15,6 @@ export const FINISH_GAME = 'game/FINISH_GAME'
 export const INCREMENT_CHAR = 'game/INCREMENT_CHAR'
 export const INCREMENT_SOFT_WRONG = 'game/INCREMENT_SOFT_WRONG'
 export const INCREMENT_WRONG = 'game/INCREMENT_WRONG'
+
+export const ADD_NOTIFICATION = 'notifications/ADD_NOTIFICATION'
+export const REMOVE_NOTIFICATION = 'notifications/REMOVE_NOTIFICATION'

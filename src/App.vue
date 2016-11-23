@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <notifications></notifications>
     <header class="header">
       <div class="container">
         <keyboard-switcher></keyboard-switcher>
@@ -23,6 +24,7 @@ import LanguageMixin from './mixins/LanguageMixin'
 import LanguageSwitcher from './components/menu/LanguageSwitcher'
 import KeyboardSwitcher from './components/menu/KeyboardSwitcher'
 import MyFooter from './components/MyFooter'
+import Notifications from './components/notifications/Notifications'
 
 export default {
   name: 'app',
@@ -30,7 +32,8 @@ export default {
   components: {
     LanguageSwitcher,
     KeyboardSwitcher,
-    MyFooter
+    MyFooter,
+    Notifications
   }
 }
 </script>

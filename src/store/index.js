@@ -6,6 +6,7 @@ import * as getters from './getters'
 import options from './modules/options'
 import autocue from './modules/autocue'
 import game from './modules/game'
+import notifications from './modules/notifications'
 import createLogger from 'vuex/dist/logger'
 
 Vue.use(Vuex)
@@ -13,7 +14,7 @@ Vue.use(Vuex)
 const debug = process.env.NODE_ENV !== 'production'
 let persistedState = createPersistedState({
   key: 'killtypo-options',
-  path: [
+  paths: [
     'options'
   ]
 })
@@ -24,7 +25,8 @@ export default new Vuex.Store({
   modules: {
     options,
     autocue,
-    game
+    game,
+    notifications
   },
   strict: debug,
   plugins: debug ? [createLogger(), persistedState] : [persistedState]

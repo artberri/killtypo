@@ -5,89 +5,15 @@ import VueRouter from 'vue-router'
 import VueI18n from 'vue-i18n'
 import App from './App'
 import store from './store'
-import locales from './locales/'
-import Home from './pages/Home'
-import Game from './pages/Game'
-import Mode from './pages/Mode'
-import NotFound from './pages/NotFound'
+import locales from './locales'
+import routes from './routes'
+import ServiceWorker from './ServiceWorker'
 
 const DEBUG = process.env.NODE_ENV !== 'production'
-
-if (!DEBUG && 'serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js')
-}
 
 Vue.use(VueRouter)
 Vue.use(VueI18n)
 Object.keys(locales).forEach(lang => Vue.locale(lang, locales[lang]))
-
-const routes = [
-  {
-    path: '/',
-    component: Home,
-    name: 'home-en',
-    meta: {
-      lang: 'en'
-    }
-  },
-  {
-    path: '/game',
-    component: Game,
-    name: 'game-en',
-    meta: {
-      lang: 'en'
-    }
-  },
-  {
-    path: '/mode',
-    component: Mode,
-    name: 'mode-en',
-    meta: {
-      lang: 'en'
-    }
-  },
-
-  {
-    path: '/es',
-    component: Home,
-    name: 'home-es',
-    meta: {
-      lang: 'es'
-    }
-  },
-  {
-    path: '/es/juego',
-    component: Game,
-    name: 'game-es',
-    meta: {
-      lang: 'es'
-    }
-  },
-  {
-    path: '/es/modo',
-    component: Mode,
-    name: 'mode-es',
-    meta: {
-      lang: 'es'
-    }
-  },
-  {
-    path: '/es/*',
-    component: NotFound,
-    name: 'notfound-es',
-    meta: {
-      lang: 'es'
-    }
-  },
-  {
-    path: '*',
-    component: NotFound,
-    name: 'notfound-en',
-    meta: {
-      lang: 'en'
-    }
-  }
-]
 
 const router = new VueRouter({
   mode: 'history',
@@ -105,5 +31,10 @@ new Vue({
   store,
   router,
   template: '<App/>',
-  components: { App }
+  components: { App },
+  created () {
+    if (!DEBUG && navigator && 'serviceWorker' in navigator) {
+      new ServiceWorker(this.$store)
+    }
+  }
 })

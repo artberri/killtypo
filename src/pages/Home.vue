@@ -121,6 +121,10 @@ export default {
     background: #2c3e50;
     color: #fff;
     border-radius: 50px;
+
+    i {
+      line-height: 70px;
+    }
   }
 
   p {

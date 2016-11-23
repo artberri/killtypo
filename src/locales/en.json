@@ -51,5 +51,8 @@
     "notFound": "404",
     "pageNotFound": "Page not found",
     "goHome": "Go to homepage"
+  },
+  "notifications": {
+    "offlineReady": "You are now safe to go offline! You can now access https://www.killtypo.com even without an internet connection."
   }
 }
