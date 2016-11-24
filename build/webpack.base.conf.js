@@ -101,6 +101,7 @@ module.exports = {
       cacheId: 'killtypo',
       filename: 'service-worker.js',
       maximumFileSizeToCacheInBytes: 4194304,
+      importScripts: ['/static/offline-google-analytics-import.js', '/static/sw-analytics.js'],
       runtimeCaching: [
         {
           handler: 'networkFirst',
