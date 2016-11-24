@@ -1,6 +1,6 @@
 export default {
   autocueLength: 50,
-  defaultWordLimit: 50,
-  minWordLimit: 1,
+  defaultWordLimit: 100,
+  minWordLimit: 50,
   maxWordLimit: 1000
 }

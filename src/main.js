@@ -1,8 +1,13 @@
 /* eslint-disable no-new */
 
+import 'autotrack/lib/plugins/clean-url-tracker'
+import 'autotrack/lib/plugins/outbound-link-tracker'
+import 'autotrack/lib/plugins/url-change-tracker'
+import 'autotrack/lib/plugins/page-visibility-tracker'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueI18n from 'vue-i18n'
+import Analytics from './plugins/Analytics'
 import App from './App'
 import store from './store'
 import locales from './locales'
@@ -13,6 +18,7 @@ const DEBUG = process.env.NODE_ENV !== 'production'
 
 Vue.use(VueRouter)
 Vue.use(VueI18n)
+Vue.use(Analytics)
 Object.keys(locales).forEach(lang => Vue.locale(lang, locales[lang]))
 
 const router = new VueRouter({

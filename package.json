@@ -20,6 +20,7 @@
     "deploy": "./node_modules/flightplan/bin/fly.js deploy:production"
   },
   "dependencies": {
+    "autotrack": "^1.0.3",
     "chart.js": "^2.3.0",
     "vue": "^2.0.1",
     "vue-i18n": "^4.7.1",
@@ -46,7 +47,7 @@
     "eslint-friendly-formatter": "^2.0.5",
     "eslint-loader": "^1.5.0",
     "eslint-plugin-html": "^1.3.0",
-    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
@@ -82,6 +83,7 @@
     "shelljs": "^0.7.4",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0",
+    "sw-offline-google-analytics": "^1.1.1",
     "sw-precache": "^4.2.1",
     "sw-precache-webpack-plugin": "^0.6.1",
     "url-loader": "^0.5.7",

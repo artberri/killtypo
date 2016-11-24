@@ -123,7 +123,7 @@ export default {
     border-radius: 50px;
 
     i {
-      line-height: 70px;
+      line-height: 80px;
     }
   }
 

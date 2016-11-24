@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import * as types from './mutation-types'
 import settings from '../settings'
 
@@ -48,5 +49,6 @@ export const pressKey = ({ commit, state }, event) => {
 
   if (response.left.length === 0 && response.wrong.length === 0) {
     commit(types.FINISH_GAME)
+    Vue.$ga.trackEvent('game', 'finish', 'mode' + state.options.mode)
   }
 }

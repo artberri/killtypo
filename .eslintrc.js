@@ -20,6 +20,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   },
   globals: {
-    'CanvasJS': true
+    'CanvasJS': true,
+    'ga': true
   }
 }
