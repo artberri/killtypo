@@ -2,7 +2,19 @@
   "home": {
     "claim": "Diviértete mecanografiando",
     "sentence": "KillTypo es una aplicación de mecanografía. Podrás practicar y autoevaluarte escribiendo textos de la Wikipedia o los tuyos propios.",
-    "cta": "Empieza a escribir"
+    "cta": "Empieza a escribir",
+    "easy": "Fácil",
+    "easytext": "Empieza a practicar ahora mismo, gratis y sin registros. Nuestro 'teleprompter' único facilita la lectura y te permite concentrarte en teclear.",
+    "offline": "Offline",
+    "offlinetext": "Tienes un navegador actualizado? Eso es todo lo que necesitas para divertirte con KillTypo offline. Incluso podrías desconectarte ahora mismo y seguir jugando.",
+    "real": "Real",
+    "realtext": "Lo sentimos, pero no permitimos fallos ;) KillTypo te obliga a borrar cuando fallas si quieres acabar la partida. En la vida real tienes que borrar si te equivocas, aquí también.",
+    "free": "Gratis",
+    "freetext": "KillTypo siempre te permitirá practicar gratis, lo prometemos. Si algún día tuviéramos suficiente tráfico para monetizar la web como mucho añadiríamos algo de publi o funcionalidades premium.",
+    "open": "Abierto",
+    "opentext": "Esta aplicación es software libre de código abierto. Siéntete libre de ayudarnos a mejorar la web, de hacernos sugerencias, de ayudarnos con las traducciones,...",
+    "amusing": "Divertido",
+    "amusingtext": "Reta a tus amigos o simplemente trata de superarte a ti mismo. Si creas una cuenta podrás guardar tu progreso o compartir tus marcas. Llegarás al top 10? (Próximamente)"
   },
   "mode": {
     "select": "Selecciona Modo",
@@ -27,5 +39,20 @@
     "errors": "Errores",
     "xAxisLabel": "Tiempo (en segundos)",
     "tooltipWrong": "Letra fallada:"
+  },
+  "footer": {
+    "about": "Sobre KillTypo",
+    "abouttext": "Este es un proyecto desarrollado por <a href=\"http://www.berriart.com/\">Alberto Varela</a> para practicar el desarrollo de aplicaciones web progresivas y aprender sobre el framework VueJS. Si te gusta el desarrollo web, puedes echarle un vistazo al código, y si te animas ayudarme a mejorarlo.",
+    "contribute": "Colabora con KillTypo",
+    "contributetext": "Do you want to improve this page or help me writting better code? If you have software development experience or if you are willing to make some translations, consider <a href=\"https://github.com/artberri/killtypo/blob/master/CONTRIBUTING.md\">contributing to KillTypo</a>.",
+    "contact": "Contacto"
+  },
+  "notFound": {
+    "notFound": "404",
+    "pageNotFound": "Página no encontrada",
+    "goHome": "Inicio"
+  },
+  "notifications": {
+    "offlineReady": "¡Ya puedes acceder sin concexión! Ahora puedes ir a la web https://www.killtypo.com incluso sin conexión a internet."
   }
 }

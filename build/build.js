@@ -22,6 +22,7 @@ rm('-rf', assetsPath)
 mkdir('-p', assetsPath)
 cp('-R', 'static/*', assetsPath)
 cp('node_modules/sw-offline-google-analytics/offline-google-analytics-import.js', assetsPath)
+cp('robots.txt', config.build.assetsRoot)
 
 webpack(webpackConfig, function (err, stats) {
   spinner.stop()

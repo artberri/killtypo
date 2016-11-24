@@ -42,9 +42,9 @@
   },
   "footer": {
     "about": "About KillTypo",
-    "abouttext": "This project has been developed by <a href=\"http://www.berriart.com/\">Alberto Varela</a> in order to learn and test the VueJS JavaScript Framework. I'll try to improve it little by little, but you can help also, it is Free Software.",
+    "abouttext": "This project has been developed by <a href=\"http://www.berriart.com/\">Alberto Varela</a> in order to learn about Progressive Web Apps and the VueJS Framework. I'll try to improve it little by little, but you can help also, it is Free Software.",
     "contribute": "Become a Contributor",
-    "contributetext": " Do you want to improve this page or help me writting better code? If you have software development experience or if you are willing to make some translations, consider <a href=\"https://github.com/artberri/killtypo/blob/master/CONTRIBUTING.md\">contributing to KillTypo</a>.",
+    "contributetext": "Do you want to improve this page or help me writting better code? If you have software development experience or if you are willing to make some translations, consider <a href=\"https://github.com/artberri/killtypo/blob/master/CONTRIBUTING.md\">contributing to KillTypo</a>.",
     "contact": "Contact"
   },
   "notFound": {
