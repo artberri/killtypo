@@ -57,6 +57,11 @@
   },
   "login": {
     "signIn": "Iniciar sesión",
-    "offline": "Sin conexión"
+    "offline": "Sin conexión",
+    "logout": "Salir",
+    "logoutSuccess": "Te has deslogueado correctamente",
+    "loginGoogle": "Entrar con Google",
+    "loginModalTitle": "Entrar / Registrarse",
+    "loginModalContent": "Usa tus cuentas de Google para entrar gratis y empezar a guardar tu progreso fácilmente."
   }
 }

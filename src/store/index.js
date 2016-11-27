@@ -8,6 +8,7 @@ import autocue from './modules/autocue'
 import game from './modules/game'
 import notifications from './modules/notifications'
 import user from './modules/user'
+import modals from './modules/modals'
 import createLogger from 'vuex/dist/logger'
 
 Vue.use(Vuex)
@@ -28,7 +29,8 @@ export default new Vuex.Store({
     autocue,
     game,
     notifications,
-    user
+    user,
+    modals
   },
   strict: debug,
   plugins: debug ? [createLogger(), persistedState] : [persistedState]

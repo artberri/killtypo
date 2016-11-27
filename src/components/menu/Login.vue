@@ -1,5 +1,11 @@
 <template>
-  <button class="button" :class="classObject">{{ buttonText }}</button>
+  <div>
+    <button class="button" v-if="!this.logged" :class="classObject" v-on:click="showPopup">{{ buttonText }}</button>
+    <ul v-if="this.logged">
+      <li><img height="25" width="25" :src="user.photoURL"> {{ user.displayName }}</li>
+      <li><a v-on:click="logout"><i></i> {{ $t("login.logout") }}</a></li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -27,6 +33,12 @@ export default {
       return {
         offline: !this.online
       }
+    },
+    user () {
+      return this.$store.state.user
+    },
+    logged () {
+      return this.online && !this.user.isAnonymous
     }
   },
   beforeMount () {
@@ -43,23 +55,19 @@ export default {
   },
   methods: {
     ...mapMutations({
-      'logIn': types.LOG_IN
+      logIn: types.LOG_IN,
+      showModal: types.SHOW_MODAL,
+      notify: types.ADD_NOTIFICATION,
+      logOut: types.LOG_OUT
     }),
     auth () {
-      let firstTime = true
-
       this.initialized = true
 
       Vue.$firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           this.logIn(user)
         } else {
-          if (firstTime) {
-            firstTime = false
-            this.loginAnonymously()
-          } else {
-            console.log('sign out')
-          }
+          this.loginAnonymously()
         }
       })
     },
@@ -75,17 +83,34 @@ export default {
       })
     },
     logout () {
-      Vue.$firebase.auth().signOut()
+      Vue.$firebase.auth().signOut().then((result) => {
+        this.notify({
+          text: Vue.t('login.logoutSuccess')
+        })
+      })
+    },
+    showPopup () {
+      this.showModal('login')
     }
   }
 }
 </script>
 
 <style scoped>
-button {
+div {
+  float: right;
   position: relative;
   z-index: 50;
-  float: right;
+}
+
+img {
+    position: absolute;
+    right: 0;
+    height: 38px;
+    width: 38px;
+}
+
+button {
   width: 140px;
   margin: 15px 0 0 15px;
   padding: 0;
@@ -106,6 +131,55 @@ button {
     font-size: 0.9em;
     transform: none;
     box-shadow: none;
+  }
+}
+
+ul {
+  position: relative;
+  z-index: 50;
+  float: right;
+  margin: 0 0 0 15px;
+  padding: 0;
+
+  li {
+    display: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: transparent;
+    text-align: left;
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+
+    &:first-child {
+      margin-top: 15px;
+      display: block;
+      border: 1px solid #2c3e50;
+      padding-right: 53px;
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: #425D77;
+    }
+  }
+
+  &:hover li {
+    display: block;
+    padding-left: 0;
+    background: #417CB7;
+    color: #fff;
+
+    &:first-child {
+      padding-left: 15px;
+      background: #2c3e50;
+    }
+
+    a {
+      padding-left: 15px;
+      color: #fff;
+    }
   }
 }
 </style>
