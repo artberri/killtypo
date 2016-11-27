@@ -3,6 +3,7 @@
     <notifications></notifications>
     <header class="header">
       <div class="container">
+        <login></login>
         <keyboard-switcher></keyboard-switcher>
         <language-switcher></language-switcher>
         <h1>
@@ -21,6 +22,7 @@
 
 <script>
 import LanguageMixin from './mixins/LanguageMixin'
+import Login from './components/menu/Login'
 import LanguageSwitcher from './components/menu/LanguageSwitcher'
 import KeyboardSwitcher from './components/menu/KeyboardSwitcher'
 import MyFooter from './components/MyFooter'
@@ -30,6 +32,7 @@ export default {
   name: 'app',
   mixins: [LanguageMixin],
   components: {
+    Login,
     LanguageSwitcher,
     KeyboardSwitcher,
     MyFooter,
