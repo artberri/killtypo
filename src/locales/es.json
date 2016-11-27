@@ -54,5 +54,9 @@
   },
   "notifications": {
     "offlineReady": "¡Ya puedes acceder sin concexión! Ahora puedes ir a la web https://www.killtypo.com incluso sin conexión a internet."
+  },
+  "login": {
+    "signIn": "Iniciar sesión",
+    "offline": "Sin conexión"
   }
 }

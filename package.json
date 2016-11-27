@@ -23,6 +23,8 @@
     "autotrack": "^1.0.3",
     "chart.js": "^2.3.0",
     "firebase": "^3.6.1",
+    "localforage": "^1.4.3",
+    "offline-js": "^0.7.18",
     "vue": "^2.0.1",
     "vue-i18n": "^4.7.1",
     "vue-router": "^2.0.1",

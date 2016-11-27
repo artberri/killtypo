@@ -7,7 +7,9 @@ import 'autotrack/lib/plugins/page-visibility-tracker'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueI18n from 'vue-i18n'
-import Analytics from './plugins/Analytics'
+import 'offline-js/js/offline'
+import AnalyticsPlugin from './plugins/Analytics'
+import StoragePlugin from './plugins/Storage'
 import Firebase from './plugins/Firebase'
 import App from './App'
 import store from './store'
@@ -18,10 +20,15 @@ import ServiceWorker from './ServiceWorker'
 
 const DEBUG = process.env.NODE_ENV !== 'production'
 
+Offline.options = {
+  checkOnLoad: false
+}
+
 Vue.use(Firebase, settings.firebase)
 Vue.use(VueRouter)
 Vue.use(VueI18n)
-Vue.use(Analytics)
+Vue.use(AnalyticsPlugin)
+Vue.use(StoragePlugin, settings.storage)
 Object.keys(locales).forEach(lang => Vue.locale(lang, locales[lang]))
 
 const router = new VueRouter({
@@ -53,10 +60,10 @@ let app = new Vue({
   }
 })
 
-function updateConnectionStatus () {
-  console.log(navigator.onLine)
-  app.$set(app, 'online', navigator.onLine)
+function updateConnectionStatus (status) {
+  app.$set(app, 'online', status)
 }
 
-window.addEventListener('online', updateConnectionStatus())
-window.addEventListener('offline', updateConnectionStatus())
+Offline.on('up', () => updateConnectionStatus(true))
+Offline.on('down', () => updateConnectionStatus(false))
+Offline.check()

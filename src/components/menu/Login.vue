@@ -1,50 +1,67 @@
 <template>
-  <button class="button">Sign in</button>
+  <button class="button" :class="classObject">{{ buttonText }}</button>
 </template>
 
 <script>
 import Vue from 'vue'
+import { mapMutations } from 'vuex'
+import * as types from '../../store/mutation-types'
 import LanguageMixin from '../../mixins/LanguageMixin'
 
 export default {
   name: 'login',
   mixins: [LanguageMixin],
-  beforeMount () {
-    this.auth()
-
-    var connectedRef = Vue.$firebase.database().ref('.info/connected')
-    connectedRef.on('value', function (snap) {
-      if (snap.val() === true) {
-        console.log('connected')
-      } else {
-        console.log('not connected')
-      }
-    })
+  data () {
+    return {
+      initialized: false
+    }
   },
   computed: {
-
+    online () {
+      return this.$root.online
+    },
+    buttonText () {
+      return this.online ? Vue.t('login.signIn') : Vue.t('login.offline')
+    },
+    classObject () {
+      return {
+        offline: !this.online
+      }
+    }
+  },
+  beforeMount () {
+    if (this.online) {
+      this.auth()
+    }
+  },
+  watch: {
+    online (value) {
+      if (value && !this.initialized) {
+        this.auth()
+      }
+    }
   },
   methods: {
+    ...mapMutations({
+      'logIn': types.LOG_IN
+    }),
     auth () {
-      /* let firstTime = true
+      let firstTime = true
+
+      this.initialized = true
 
       Vue.$firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-          // User is signed in.
-          var isAnonymous = user.isAnonymous
-          var uid = user.uid
-          console.log(isAnonymous)
-          console.log(uid)
+          this.logIn(user)
         } else {
           if (firstTime) {
             firstTime = false
             this.loginAnonymously()
-            console.log('first login')
           } else {
             console.log('sign out')
           }
         }
-      }) */
+      })
     },
     loginAnonymously () {
       Vue.$firebase.auth().signInAnonymously().catch((error) => {
@@ -81,5 +98,14 @@ button {
   line-height: 40px;
   border: 0;
   font-size: 1.1em;
+
+  &.offline {
+    background: transparent;
+    color: #888;
+    cursor: default;
+    font-size: 0.9em;
+    transform: none;
+    box-shadow: none;
+  }
 }
 </style>

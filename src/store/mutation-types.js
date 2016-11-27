@@ -18,3 +18,6 @@ export const INCREMENT_WRONG = 'game/INCREMENT_WRONG'
 
 export const ADD_NOTIFICATION = 'notifications/ADD_NOTIFICATION'
 export const REMOVE_NOTIFICATION = 'notifications/REMOVE_NOTIFICATION'
+
+export const LOG_IN = 'user/LOG_IN'
+export const LOG_OUT = 'user/LOG_OUT'

@@ -3,6 +3,10 @@ export default {
   defaultWordLimit: 100,
   minWordLimit: 50,
   maxWordLimit: 1000,
+  storage: {
+    name: 'KillTypo',
+    version: '1.0'
+  },
   firebase: {
     apiKey: 'AIzaSyC5BCEboSvewSNL702gthIHjbvcytL2Qc8',
     authDomain: 'killtypo-f88f1.firebaseapp.com',

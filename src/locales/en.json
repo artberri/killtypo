@@ -54,5 +54,9 @@
   },
   "notifications": {
     "offlineReady": "You are now safe to go offline! You can now access https://www.killtypo.com even without an internet connection."
+  },
+  "login": {
+    "signIn": "Sign In",
+    "offline": "You're Offline"
   }
 }

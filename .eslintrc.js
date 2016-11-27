@@ -21,6 +21,7 @@ module.exports = {
   },
   globals: {
     'CanvasJS': true,
-    'ga': true
+    'ga': true,
+    'Offline': true
   }
 }
