@@ -30,17 +30,26 @@ export default {
           displayName: user.providerData[0].displayName,
           photoURL: user.providerData[0].photoURL
         }).then(() => {
-          this.logIn(user)
+          this.register(user)
         })
 
         this.hideModal('login')
       }, (error) => {
         firebase.auth().signInWithCredential(error.credential).then((user) => {
-          this.logIn(user)
+          this.register(user)
           this.hideModal('login')
         }, (error) => {
           console.error('Sign In Error', error)
         })
+      })
+    },
+    register (user) {
+      this.logIn(user)
+
+      Vue.$firebase.database().ref('users/' + user.uid).set({
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        email: user.email
       })
     }
   }
