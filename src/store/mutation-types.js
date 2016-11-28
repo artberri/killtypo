@@ -22,6 +22,9 @@ export const REMOVE_NOTIFICATION = 'notifications/REMOVE_NOTIFICATION'
 export const LOG_IN = 'user/LOG_IN'
 export const LOG_OUT = 'user/LOG_OUT'
 
+export const SET_ONLINE = 'offline/SET_ONLINE'
+export const SET_OFFLINE = 'offline/SET_OFFLINE'
+
 export const SHOW_MODAL = 'modals/SHOW_MODAL'
 export const HIDE_MODAL = 'modals/HIDE_MODAL'
 export const TOGGLE_MODAL = 'modals/TOGGLE_MODAL'

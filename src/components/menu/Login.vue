@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     online () {
-      return this.$root.online
+      return this.$store.state.online
     },
     buttonText () {
       return this.online ? Vue.t('login.signIn') : Vue.t('login.offline')

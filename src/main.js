@@ -17,6 +17,8 @@ import settings from './settings'
 import locales from './locales'
 import routes from './routes'
 import ServiceWorker from './ServiceWorker'
+import { mapMutations } from 'vuex'
+import * as types from './store/mutation-types'
 
 const DEBUG = process.env.NODE_ENV !== 'production'
 
@@ -42,28 +44,29 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
-let app = new Vue({
+new Vue({
   el: '#app',
   store,
   router,
   template: '<App/>',
   components: { App },
-  data () {
-    return {
-      online: navigator.onLine
-    }
-  },
   created () {
     if (!DEBUG && navigator && 'serviceWorker' in navigator) {
       new ServiceWorker(this.$store)
     }
+
+    Offline.on('up', () => {
+      this.setOnline()
+    })
+    Offline.on('down', () => {
+      this.setOffline()
+    })
+    Offline.check()
+  },
+  methods: {
+    ...mapMutations({
+      setOnline: types.SET_ONLINE,
+      setOffline: types.SET_OFFLINE
+    })
   }
 })
-
-function updateConnectionStatus (status) {
-  app.$set(app, 'online', status)
-}
-
-Offline.on('up', () => updateConnectionStatus(true))
-Offline.on('down', () => updateConnectionStatus(false))
-Offline.check()

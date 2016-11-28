@@ -60,7 +60,7 @@ export default {
             },
             {
               type: 'line',
-              label: 'WPM',
+              label: Vue.t('panel.wpm'),
               borderColor: 'rgba(44, 62, 80, 1)',
               pointRadius: 0,
               backgroundColor: 'rgba(44, 62, 80, 0.4)',
@@ -68,7 +68,7 @@ export default {
             },
             {
               type: 'line',
-              label: 'CPM',
+              label: Vue.t('panel.cpm'),
               borderColor: 'rgba(4, 232, 142, 1)',
               pointRadius: 0,
               backgroundColor: 'rgba(4, 232, 142, 0.4)',

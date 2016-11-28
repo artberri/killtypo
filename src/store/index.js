@@ -3,11 +3,13 @@ import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import * as actions from './actions'
 import * as getters from './getters'
+import firebasePlugin from './plugins/firebasePlugin'
 import options from './modules/options'
 import autocue from './modules/autocue'
 import game from './modules/game'
 import notifications from './modules/notifications'
 import user from './modules/user'
+import online from './modules/online'
 import modals from './modules/modals'
 import createLogger from 'vuex/dist/logger'
 
@@ -20,6 +22,7 @@ let persistedState = createPersistedState({
     'options'
   ]
 })
+let plugins = debug ? [createLogger(), persistedState, firebasePlugin] : [persistedState, firebasePlugin]
 
 export default new Vuex.Store({
   actions,
@@ -30,8 +33,9 @@ export default new Vuex.Store({
     game,
     notifications,
     user,
-    modals
+    modals,
+    online
   },
   strict: debug,
-  plugins: debug ? [createLogger(), persistedState] : [persistedState]
+  plugins: plugins
 })
