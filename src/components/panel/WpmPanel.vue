@@ -11,7 +11,7 @@ export default {
   name: 'wpm-panel',
   computed: {
     ...mapGetters({
-      wpm: 'getWpm'
+      wpm: 'wpm'
     })
   }
 }

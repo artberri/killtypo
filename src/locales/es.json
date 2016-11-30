@@ -23,7 +23,8 @@
     "minError": "El texto tiene que tener al menos {minWordLimit} palabras.",
     "trim": "Limitar el texto a {wordLimit} palabras",
     "lineBreak": "Quitar saltos de línea",
-    "next": "Siguiente"
+    "next": "Siguiente",
+    "reload": "Cargar otro texto"
   },
   "game": {
     "congrats": "¡Felicidades!",

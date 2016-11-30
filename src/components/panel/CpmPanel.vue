@@ -11,7 +11,7 @@ export default {
   name: 'vpm-panel',
   computed: {
     ...mapGetters({
-      cpm: 'getCpm'
+      cpm: 'cpm'
     })
   }
 }

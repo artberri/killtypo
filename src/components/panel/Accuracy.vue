@@ -11,7 +11,7 @@ export default {
   name: 'accuracy',
   computed: {
     ...mapGetters({
-      accuracy: 'getAccuracy'
+      accuracy: 'accuracy'
     })
   }
 }

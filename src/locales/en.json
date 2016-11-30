@@ -23,7 +23,8 @@
     "minError": "You must paste {minWordLimit} words or more.",
     "trim": "Trim text to {wordLimit} words",
     "lineBreak": "Remove line breaks",
-    "next": "Next"
+    "next": "Next",
+    "reload": "Load new text"
   },
   "game": {
     "congrats": "Congrats!",

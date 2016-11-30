@@ -152,6 +152,10 @@ textarea {
   font-size: 1.6rem;
 }
 
+button:focus {
+  outline:0;
+}
+
 .button {
   display: inline-block;
   cursor: pointer;

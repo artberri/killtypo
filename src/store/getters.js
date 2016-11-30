@@ -32,7 +32,7 @@ function calculateCpm (delta, charAmount) {
   return cpm.toFixed(2)
 }
 
-export const getWpm = state => {
+export const wpm = state => {
   let data = getGameData(state)
   let delta = getDelta(data.startTime, data.lastTime, true)
   let wpm = calculateWpm(delta, data.charAmount)
@@ -40,7 +40,7 @@ export const getWpm = state => {
   return wpm
 }
 
-export const getCpm = state => {
+export const cpm = state => {
   let data = getGameData(state)
   let delta = getDelta(data.startTime, data.lastTime, true)
   let cpm = calculateCpm(delta, data.charAmount)
@@ -48,7 +48,7 @@ export const getCpm = state => {
   return cpm
 }
 
-export const getAccuracy = state => {
+export const accuracy = state => {
   let data = getGameData(state)
   let accuracy = (data.charAmount - data.wrongAmount - data.softs * 0.1) / data.charAmount * 100
 
@@ -59,13 +59,13 @@ export const getAccuracy = state => {
   return accuracy.toFixed(2)
 }
 
-export const getFinalTime = state => {
+export const finalTime = state => {
   let data = getGameData(state)
 
   return data.lastTime ? data.lastTime - data.startTime : 0
 }
 
-export const getWpmChartData = state => {
+export const wpmChartData = state => {
   let data = getGameData(state)
   let dataPoints = [{
     x: 0,
@@ -88,7 +88,7 @@ export const getWpmChartData = state => {
   return dataPoints
 }
 
-export const getCpmChartData = state => {
+export const cpmChartData = state => {
   let data = getGameData(state)
   let dataPoints = [{
     x: 0,
@@ -111,7 +111,7 @@ export const getCpmChartData = state => {
   return dataPoints
 }
 
-export const getErrorChartData = state => {
+export const errorChartData = state => {
   let data = getGameData(state)
   let dataPoints = []
 

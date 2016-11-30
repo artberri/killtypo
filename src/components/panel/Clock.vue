@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      final: 'getFinalTime'
+      final: 'finalTime'
     }),
     elapsed () {
       let elapsedTime = null

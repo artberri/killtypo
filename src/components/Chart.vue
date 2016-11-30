@@ -19,9 +19,9 @@ export default {
   name: 'chart',
   computed: {
     ...mapGetters({
-      cpmDataPoints: 'getCpmChartData',
-      wpmDataPoints: 'getWpmChartData',
-      errorDataPoints: 'getErrorChartData'
+      cpmDataPoints: 'cpmChartData',
+      wpmDataPoints: 'wpmChartData',
+      errorDataPoints: 'errorChartData'
     })
   },
   mounted () {

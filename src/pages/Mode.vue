@@ -2,12 +2,15 @@
   <div class="container">
     <h2>{{ $t("mode.select") }}</h2>
     <div class="mode-buttons">
-      <a v-on:click="setMode(0)" :class="classActive(0)">{{ $t("mode.random") }}</a>
-      <a v-on:click="setMode(1)" :class="classActive(1)">{{ $t("mode.paste") }}</a>
+      <a @click="setMode(0)" :class="classActive(0)">{{ $t("mode.random") }}</a>
+      <a @click="setMode(1)" :class="classActive(1)">{{ $t("mode.paste") }}</a>
     </div>
     <div>
       <textarea placeholder="Paste your text here" v-model="message" v-show="showPasteTextarea"></textarea>
       <textarea v-model="randomText" v-show="showRandomTextarea"></textarea>
+      <div class="reload" :class="reloadClass">
+        <button @click="randomQuote()">{{ $t("mode.reload") }} <i class="fa fa-refresh" aria-hidden="true"></i> </button>
+      </div>
     </div>
     <div class="error" v-show="showError()">
       {{ $t("mode.minError", { minWordLimit }) }}
@@ -17,7 +20,7 @@
       <br><br>
       <remove-intros></remove-intros>
     </div>
-    <a class="next button" v-on:click="play()" v-show="showNext()">{{ $t("mode.next") }}</a>
+    <a class="next button" @click="play()" v-show="showNext()">{{ $t("mode.next") }}</a>
   </div>
 </template>
 
@@ -45,7 +48,8 @@ export default {
       minWordLimit: settings.minWordLimit,
       maxWordLimit: settings.maxWordLimit,
       defaultWordLimit: settings.defaultWordLimit,
-      message: ''
+      message: '',
+      randomText: ''
     }
   },
   computed: {
@@ -63,9 +67,14 @@ export default {
     words () {
       return this.message.split(' ')
     },
-    randomText () {
-      return this.randomQuote()
+    reloadClass () {
+      return {
+        hide: this.mode === MODE_PASTE
+      }
     }
+  },
+  mounted () {
+    this.randomQuote()
   },
   methods: {
     ...mapMutations({
@@ -78,7 +87,7 @@ export default {
     randomQuote () {
       let texts = quotes[this.language]
 
-      return texts[Math.floor(Math.random() * texts.length)]
+      this.randomText = texts[Math.floor(Math.random() * texts.length)]
     },
 
     classActive (mode) {
@@ -128,6 +137,21 @@ export default {
 <style scoped>
 h2 {
   font-size: 3rem;
+}
+
+.reload {
+  text-align: right;
+  width: 634px;
+  margin: 5px auto;
+
+  button {
+    background: transparent;
+    border: 0;
+  }
+
+  &.hide {
+    visibility: hidden;
+  }
 }
 
 .mode-buttons {
