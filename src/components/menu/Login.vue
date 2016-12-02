@@ -63,7 +63,7 @@ export default {
     auth () {
       this.initialized = true
 
-      Vue.$firebase.auth().onAuthStateChanged((user) => {
+      Vue.$firebase.onAuthStateChanged((user) => {
         if (user) {
           this.logIn(user)
         } else {
@@ -72,7 +72,7 @@ export default {
       })
     },
     loginAnonymously () {
-      Vue.$firebase.auth().signInAnonymously().catch((error) => {
+      Vue.$firebase.signInAnonymously().catch((error) => {
         var errorCode = error.code
 
         if (errorCode === 'auth/operation-not-allowed') {
@@ -83,7 +83,7 @@ export default {
       })
     },
     logout () {
-      Vue.$firebase.auth().signOut().then((result) => {
+      Vue.$firebase.signOut().then((result) => {
         this.notify({
           text: Vue.t('login.logoutSuccess')
         })

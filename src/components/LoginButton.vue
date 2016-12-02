@@ -16,40 +16,30 @@ export default {
   methods: {
     ...mapMutations({
       logIn: types.LOG_IN,
-      hideModal: types.HIDE_MODAL
+      logOut: types.LOG_OUT,
+      hideModal: types.HIDE_MODAL,
+      notify: types.ADD_NOTIFICATION
     }),
     authenticate () {
-      var firebase = Vue.$firebase
-      var provider = new firebase.auth.GoogleAuthProvider()
-      var currentUser = firebase.auth().currentUser
+      let firebase = Vue.$firebase
+      let provider = firebase.getAuthProvider('google')
 
-      currentUser.linkWithPopup(provider).then((result) => {
-        let user = result.user
-
-        user.updateProfile({
-          displayName: user.providerData[0].displayName,
-          photoURL: user.providerData[0].photoURL
-        }).then(() => {
-          this.register(user)
-        })
-
+      firebase.signInWithPopup(provider).then(result => {
+        this.register(result.user)
         this.hideModal('login')
-      }, (error) => {
-        firebase.auth().signInWithCredential(error.credential).then((user) => {
-          this.register(user)
-          this.hideModal('login')
-        }, (error) => {
-          console.error('Sign In Error', error)
-        })
+      }).catch(error => {
+        console.error('Sign In Error', error)
       })
     },
     register (user) {
       this.logIn(user)
-
-      Vue.$firebase.database().ref('users/' + user.uid).set({
-        displayName: user.displayName,
-        photoURL: user.photoURL,
-        email: user.email
+      Vue.$firebase.updateUser(user, () => {
+        this.logOut()
+        this.notify({
+          text: Vue.t('notifications.loginError'),
+          timeout: false,
+          type: 'error'
+        })
       })
     }
   }

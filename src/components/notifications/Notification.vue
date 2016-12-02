@@ -57,6 +57,10 @@ export default {
     margin: 0;
     text-align: left;
   }
+
+  &.error {
+    background: #ea6969;
+  }
 }
 
 button {

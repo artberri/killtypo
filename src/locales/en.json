@@ -54,7 +54,8 @@
     "goHome": "Go to homepage"
   },
   "notifications": {
-    "offlineReady": "You are now safe to go offline! You can now access https://www.killtypo.com even without an internet connection."
+    "offlineReady": "You are now safe to go offline! You can now access https://www.killtypo.com even without an internet connection.",
+    "loginError": "We found some errors when trying to sign in. Please delete your cookies and try again."
   },
   "login": {
     "signIn": "Sign In",
