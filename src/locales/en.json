@@ -72,7 +72,9 @@
     "email": "Email",
     "username": "Username",
     "action": "Register",
-    "agree": "I agree and accept the terms of the {privacy} and {cookies}"
+    "agree": "By submitting this form you agree and accept the terms of the {privacy} and {cookies}",
+    "usernameExplanation": "Your username must have between 5 and 15 chars, use only letters and numbers.",
+    "usernameError": "This username is already in use or forbidden, please try another."
   },
   "tos": {
     "privacyText": "Privacy Policy",

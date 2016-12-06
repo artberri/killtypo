@@ -72,7 +72,9 @@
     "email": "Email",
     "username": "Nombre de usuario",
     "action": "Registrarme",
-    "agree": "Acepto y estoy de acuerdo con la {privacy} y {cookies}"
+    "agree": "Al enviar este formulario aceptas y muestras tu acuerdo con la {privacy} y {cookies}",
+    "usernameExplanation": "Debes elegir un nombre de usuario único de entre 5 y 15 caracteres, utilizando solo letras (sin acentos) y números.",
+    "usernameError": "Este nombre de usuario ya está en uso o no está permitido, prueba otro por favor."
   },
   "tos": {
     "privacyText": "Política de privacidad",

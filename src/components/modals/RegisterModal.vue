@@ -8,11 +8,13 @@
             <input class="pure-input-1" id="email" readonly type="email" :value="user.email">
 
             <label for="username">{{ $t("register.username") }}</label>
-            <input class="pure-input-1" id="username" type="text" placeholder="Email" v-model="username">
+            <input class="pure-input-1" id="username" type="text" v-model="username">
+            <small :class="usernameErrorClass">{{ $t("register.usernameExplanation") }}</small>
+            <br><br>
 
-            <input id="remember" type="checkbox"> <span v-html="agreeText"></span>
+            <small v-html="agreeText"></small>
 
-            <button type="submit" class="">{{ $t("register.action") }}</button>
+            <button :disabled="disabled" type="submit" @click="register">{{ $t("register.action") }}</button>
         </fieldset>
     </form>
   </modal>
@@ -48,12 +50,54 @@ export default {
     },
     showRegisterModal () {
       return this.$store.state.online.status && this.$store.state.modals.register
+    },
+    usernameErrorClass () {
+      return {
+        error: !this.validateUsername(this.username)
+      }
+    },
+    disabled () {
+      return !(this.validateUsername(this.username))
     }
   },
   methods: {
     ...mapMutations({
-      'closeModal': types.HIDE_MODAL
-    })
+      logIn: types.LOG_IN,
+      closeModal: types.HIDE_MODAL,
+      notify: types.ADD_NOTIFICATION
+    }),
+    register () {
+      let username = this.username
+      let user = this.user
+
+      if (this.validateUsername(username)) {
+        let ref = Vue.$firebase.saveUsername(user, username)
+
+        ref.then(() => {
+          user.username = username
+
+          Vue.$firebase.registerUser(user).then(() => {
+            this.logIn(user)
+            this.closeModal('register')
+          }).catch(() => {
+            this.notify({
+              text: Vue.t('register.usernameError'),
+              timeout: 5000,
+              type: 'error'
+            })
+          })
+        }).catch(() => {
+          this.notify({
+            text: Vue.t('register.usernameError'),
+            timeout: 5000,
+            type: 'error'
+          })
+        })
+      }
+    },
+    validateUsername (username) {
+      return !!(username.length >= 5 && username.length <= 15 && username.match(/^[a-z][a-z0-9]*([._-][a-z0-9]+)*$/))
+    }
   }
 }
 </script>
@@ -73,5 +117,14 @@ button {
   border: 0;
   font-size: 1.1em;
   color: #fff;
+
+  &[disabled] {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+.error {
+  color: #e30000;
 }
 </style>

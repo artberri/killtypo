@@ -110,12 +110,12 @@ export default {
           dbUser.email = user.email || dbUser.email
 
           ref.set(dbUser)
+          this.logIn(dbUser)
         } else {
           this.startRegistration(user)
           this.showModal('register')
         }
-      }).catch((error) => {
-        console.log(error)
+      }).catch(() => {
         this.logOut()
         this.notify({
           text: Vue.t('notifications.loginError'),

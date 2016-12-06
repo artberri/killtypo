@@ -27,6 +27,7 @@ export default {
 
     [types.START_REGISTRATION] (state, user) {
       state.newUser = {
+        uid: user.uid,
         displayName: user.displayName,
         photoURL: user.photoURL,
         email: user.email

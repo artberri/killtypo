@@ -35,10 +35,24 @@ class FirebasePlugin {
   }
 
   getUser (user) {
-    let firebase = this.fb
-    let db = firebase.database()
+    let db = this.fb.database()
 
     return db.ref('users/' + user.uid)
+  }
+
+  saveUsername (user, username) {
+    let db = this.fb.database()
+
+    return db.ref('usernames/' + username).set(user.uid)
+  }
+
+  registerUser (user) {
+    let db = this.fb.database()
+
+    user.lastLoginAt = this.TIMESTAMP
+    user.registeredAt = this.TIMESTAMP
+
+    return db.ref('users/' + user.uid).set(user)
   }
 }
 
