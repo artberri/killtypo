@@ -21,6 +21,8 @@
                 <p>
                   <a href="http://www.berriart.com">hello@killtypo.com</a>
                 </p>
+                <hr>
+                <p><router-link :to="{ name: 'privacy-' + language }">{{ $t("tos.privacyText") }}</router-link> | <router-link :to="{ name: 'cookies-' + language }">{{ $t("tos.cookiesText") }}</router-link></p>
                 <p class="copy">
                   Copyright &copy; 2016 Alberto Varela. All rights reserved.
                   <br><br>
@@ -40,7 +42,10 @@
 </template>
 
 <script>
+import LanguageMixin from '../mixins/LanguageMixin'
+
 export default {
-  name: 'my-footer'
+  name: 'my-footer',
+  mixins: [LanguageMixin]
 }
 </script>

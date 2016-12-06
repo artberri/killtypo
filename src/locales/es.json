@@ -54,7 +54,8 @@
     "goHome": "Inicio"
   },
   "notifications": {
-    "offlineReady": "¡Ya puedes acceder sin concexión! Ahora puedes ir a la web https://www.killtypo.com incluso sin conexión a internet."
+    "offlineReady": "¡Ya puedes acceder sin concexión! Ahora puedes ir a la web https://www.killtypo.com incluso sin conexión a internet.",
+    "loginError": "No hemos podido loguearte correctamente. Por favor, borra tus cookies e inténtalo de nuevo."
   },
   "login": {
     "signIn": "Iniciar sesión",
@@ -64,5 +65,9 @@
     "loginGoogle": "Entrar con Google",
     "loginModalTitle": "Entrar / Registrarse",
     "loginModalContent": "Usa tus cuentas de Google para entrar gratis y empezar a guardar tu progreso fácilmente."
+  },
+  "tos": {
+    "privacyText": "Política de privacidad",
+    "cookiesText": "Cookies"
   }
 }

@@ -53,7 +53,7 @@ export default {
   },
   computed: {
     showLoginModal () {
-      return this.$store.state.online && this.$store.state.modals.login
+      return this.$store.state.online.status && this.$store.state.modals.login
     }
   },
   methods: {

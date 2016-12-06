@@ -124,7 +124,11 @@ module.exports = {
         '/mode',
         '/es/modo',
         '/game',
-        '/es/juego'
+        '/es/juego',
+        '/privacy',
+        '/es/privacidad',
+        '/cookies',
+        '/es/cookies'
       ]
     )
   ]

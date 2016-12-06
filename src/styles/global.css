@@ -25,10 +25,24 @@ textarea {
   font-family: 'PT Sans', sans-serif;
 }
 
+hr {
+  height: 1px;
+  border: 0;
+  background: #ccc;
+}
+
 .container {
-    max-width: 1170px;
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  a {
+    color: var(--mainColor);
+  }
+}
+
+.align-left {
+  text-align: left;
 }
 
 #app {
@@ -156,7 +170,8 @@ button:focus {
   outline:0;
 }
 
-.button {
+.button,
+a.button {
   display: inline-block;
   cursor: pointer;
   white-space: nowrap;
