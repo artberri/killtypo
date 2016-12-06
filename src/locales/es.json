@@ -66,6 +66,14 @@
     "loginModalTitle": "Entrar / Registrarse",
     "loginModalContent": "Usa tus cuentas de Google para entrar gratis y empezar a guardar tu progreso fácilmente."
   },
+  "register": {
+    "hello": "¡Hola {name}!",
+    "intro": "Esta es la primera vez que te logueas en KillTypo.com. Por favor, rellena el siguiente formulario para terminar tu registro:",
+    "email": "Email",
+    "username": "Nombre de usuario",
+    "action": "Registrarme",
+    "agree": "Acepto y estoy de acuerdo con la {privacy} y {cookies}"
+  },
   "tos": {
     "privacyText": "Política de privacidad",
     "cookiesText": "Cookies"

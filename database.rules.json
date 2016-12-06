@@ -6,7 +6,7 @@
       "$uid": {
         ".write": "$uid === auth.uid",
         "username": {
-          ".validate": "!root.child('usernames').child(newData.val()).exists() || root.child('usernames').child(newData.val()).val() == $uid"
+          ".validate": "(!root.child('usernames').child(newData.val()).exists() || root.child('usernames').child(newData.val()).val() == $uid) && newData.val().length >= 5 && newData.val().length <= 10 && newData.val().matches(/^[a-z][a-z0-9]*([._-][a-z0-9]+)*$/)"
         },
         "email": {
           ".read": "$uid === auth.uid"
@@ -23,7 +23,7 @@
       "$username": {
         ".read": false,
         ".write": "!data.exists()",
-        ".validate": "newData.val() === auth.uid"
+        ".validate": "newData.val() === auth.uid && $username.length >= 5 && $username.length <= 10 && $username.matches(/^[a-z][a-z0-9]*([._-][a-z0-9]+)*$/)"
       }
     }
   }

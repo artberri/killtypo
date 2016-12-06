@@ -4,7 +4,8 @@ const state = {
   isAnonymous: true,
   uid: false,
   displayName: false,
-  photoURL: false
+  photoURL: false,
+  newUser: false
 }
 
 export default {
@@ -22,6 +23,18 @@ export default {
       state.isAnonymous = true
       state.displayName = false
       state.photoURL = false
+    },
+
+    [types.START_REGISTRATION] (state, user) {
+      state.newUser = {
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        email: user.email
+      }
+    },
+
+    [types.END_REGISTRATION] (state) {
+      state.newUser = false
     }
   }
 }

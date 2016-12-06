@@ -1,7 +1,8 @@
 import * as types from '../mutation-types'
 
 const state = {
-  login: false
+  login: false,
+  register: false
 }
 
 export default {

@@ -21,6 +21,8 @@ export const REMOVE_NOTIFICATION = 'notifications/REMOVE_NOTIFICATION'
 
 export const LOG_IN = 'user/LOG_IN'
 export const LOG_OUT = 'user/LOG_OUT'
+export const START_REGISTRATION = 'user/START_REGISTRATION'
+export const END_REGISTRATION = 'user/END_REGISTRATION'
 
 export const SET_ONLINE = 'offline/SET_ONLINE'
 export const SET_OFFLINE = 'offline/SET_OFFLINE'

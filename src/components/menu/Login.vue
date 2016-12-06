@@ -2,7 +2,7 @@
   <div>
     <button class="button" v-if="!this.logged" :class="classObject" v-on:click="showPopup">{{ buttonText }}</button>
     <ul v-if="this.logged">
-      <li><img height="25" width="25" :src="user.photoURL"> {{ user.displayName }}</li>
+      <li><router-link :to="{ name: 'user-' + language, params: { userId: 'me' } }"><img height="25" width="25" :src="user.photoURL"> {{ user.displayName }}</router-link></li>
       <li><a v-on:click="logout"><i></i> {{ $t("login.logout") }}</a></li>
     </ul>
   </div>
@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     online () {
-      return this.$store.state.online
+      return this.$store.state.online.status
     },
     buttonText () {
       return this.online ? Vue.t('login.signIn') : Vue.t('login.offline')
@@ -58,13 +58,16 @@ export default {
       logIn: types.LOG_IN,
       showModal: types.SHOW_MODAL,
       notify: types.ADD_NOTIFICATION,
-      logOut: types.LOG_OUT
+      logOut: types.LOG_OUT,
+      startRegistration: types.START_REGISTRATION
     }),
     auth () {
       this.initialized = true
 
       Vue.$firebase.onAuthStateChanged((user) => {
-        if (user) {
+        if (user && user.isAnonymous === false) {
+          this.checkUser(user)
+        } else if (user) {
           this.logIn(user)
         } else {
           this.loginAnonymously()
@@ -91,6 +94,35 @@ export default {
     },
     showPopup () {
       this.showModal('login')
+    },
+    checkUser (user) {
+      let firebase = Vue.$firebase
+      let ref = firebase.getUser(user)
+
+      ref.once('value').then(snapshot => {
+        let dbUser = snapshot.val()
+
+        // Update user
+        if (dbUser) {
+          dbUser.lastLoginAt = firebase.TIMESTAMP
+          dbUser.displayName = user.displayName || dbUser.displayName
+          dbUser.photoURL = user.photoURL || dbUser.photoURL
+          dbUser.email = user.email || dbUser.email
+
+          ref.set(dbUser)
+        } else {
+          this.startRegistration(user)
+          this.showModal('register')
+        }
+      }).catch((error) => {
+        console.log(error)
+        this.logOut()
+        this.notify({
+          text: Vue.t('notifications.loginError'),
+          timeout: false,
+          type: 'error'
+        })
+      })
     }
   }
 }
@@ -144,7 +176,6 @@ ul {
   li {
     display: none;
     text-transform: uppercase;
-    cursor: pointer;
     background: transparent;
     text-align: left;
     padding: 0 15px;
@@ -162,6 +193,7 @@ ul {
       display: block;
       text-decoration: none;
       color: #425D77;
+      cursor: pointer;
     }
   }
 
@@ -172,7 +204,6 @@ ul {
     color: #fff;
 
     &:first-child {
-      padding-left: 15px;
       background: #2c3e50;
     }
 

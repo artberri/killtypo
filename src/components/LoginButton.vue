@@ -15,7 +15,6 @@ export default {
   mixins: [LanguageMixin],
   methods: {
     ...mapMutations({
-      logIn: types.LOG_IN,
       logOut: types.LOG_OUT,
       hideModal: types.HIDE_MODAL,
       notify: types.ADD_NOTIFICATION
@@ -25,15 +24,8 @@ export default {
       let provider = firebase.getAuthProvider('google')
 
       firebase.signInWithPopup(provider).then(result => {
-        this.register(result.user)
         this.hideModal('login')
-      }).catch(error => {
-        console.error('Sign In Error', error)
-      })
-    },
-    register (user) {
-      this.logIn(user)
-      Vue.$firebase.updateUser(user, () => {
+      }).catch(() => {
         this.logOut()
         this.notify({
           text: Vue.t('notifications.loginError'),

@@ -66,6 +66,14 @@
     "loginModalTitle": "Login / Sign Up",
     "loginModalContent": "Use your existing accounts to login or to sign up for free and save your scores easily."
   },
+  "register": {
+    "hello": "Hello {name}!",
+    "intro": "This is the first time that you log into KillTypo.com. Please, fill the following form to complete your registration:",
+    "email": "Email",
+    "username": "Username",
+    "action": "Register",
+    "agree": "I agree and accept the terms of the {privacy} and {cookies}"
+  },
   "tos": {
     "privacyText": "Privacy Policy",
     "cookiesText": "Cookie Policy",

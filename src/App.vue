@@ -17,13 +17,8 @@
       <router-view></router-view>
     </div>
     <my-footer></my-footer>
-    <modal v-if="showLoginModal" @close="closeModal('login')">
-      <h3 slot="header">{{ $t("login.loginModalTitle") }}</h3>
-      <p>{{ $t("login.loginModalContent") }}</p>
-      <div slot="footer">
-        <login-button></login-button>
-      </div>
-    </modal>
+    <login-modal></login-modal>
+    <register-modal></register-modal>
   </div>
 </template>
 
@@ -33,11 +28,9 @@ import Login from './components/menu/Login'
 import LanguageSwitcher from './components/menu/LanguageSwitcher'
 import KeyboardSwitcher from './components/menu/KeyboardSwitcher'
 import MyFooter from './components/MyFooter'
-import Modal from './components/Modal'
-import LoginButton from './components/LoginButton'
 import Notifications from './components/notifications/Notifications'
-import { mapMutations } from 'vuex'
-import * as types from './store/mutation-types'
+import LoginModal from './components/modals/LoginModal'
+import RegisterModal from './components/modals/RegisterModal'
 
 export default {
   name: 'app',
@@ -48,18 +41,8 @@ export default {
     KeyboardSwitcher,
     MyFooter,
     Notifications,
-    Modal,
-    LoginButton
-  },
-  computed: {
-    showLoginModal () {
-      return this.$store.state.online.status && this.$store.state.modals.login
-    }
-  },
-  methods: {
-    ...mapMutations({
-      'closeModal': types.HIDE_MODAL
-    })
+    LoginModal,
+    RegisterModal
   }
 }
 </script>
