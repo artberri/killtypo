@@ -1,3 +1,4 @@
+/* global ga */
 class AnalyticsPlugin {
   constructor (conf) {
     this.conf = conf

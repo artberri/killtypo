@@ -1,6 +1,6 @@
 <template>
   <div :class="classObject">
-    <blinking-cursor></blinking-cursor><letter v-for="letter in lettersWrong" :letter="letter" :isWrong="true"></letter><letter v-for="letter in lettersLeft" :letter="letter"></letter>
+    <blinking-cursor></blinking-cursor><letter v-for="(letter, index) in lettersWrong" :key="index" :letter="letter" :isWrong="true"></letter><letter v-for="(letter, index) in lettersLeft" :key="index" :letter="letter"></letter>
     <div class="mask"></div>
   </div>
 </template>

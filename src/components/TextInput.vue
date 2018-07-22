@@ -9,7 +9,7 @@
       placeholder="Click here to start writing..."
       :class="{ full: hasContent }"
     ></textarea>
-    <textarea id="backinput" class="back">{{ message }}</textarea>
+    <textarea id="backinput" class="back" v-model="message"></textarea>
   </div>
 </template>
 
@@ -98,18 +98,18 @@ textarea.back {
 }
 
 ::placeholder {
-   color: #bbb;
-   text-transform: uppercase;
-   text-align: center;
-   line-height: 160px;
-   height: 100%;
-   font-size: 1.8rem;
-   background: #fff;
+  color: #bbb;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 160px;
+  height: 100%;
+  font-size: 1.8rem;
+  background: #fff;
 }
 
 :focus::placeholder {
-   color: transparent;
-   background: transparent;
+  color: transparent;
+  background: transparent;
 }
 
 </style>

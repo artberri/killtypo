@@ -1,18 +1,16 @@
 <template>
   <ul>
-    <li><i class="fa fa-keyboard-o" aria-hidden="true"></i></i> &nbsp; {{ selected.name }}</li>
-    <li v-for="keyboard in list" :keyboard="keyboard"><a v-on:click="setKeyboard(keyboard.code)"><i></i> {{ keyboard.name }}</a></li>
+    <li><i class="fa fa-keyboard-o" aria-hidden="true"></i> &nbsp; {{ selected.name }}</li>
+    <li v-for="(keyboard, index) in list" :key="index" :keyboard="keyboard"><a v-on:click="setKeyboard(keyboard.code)"><i></i> {{ keyboard.name }}</a></li>
   </ul>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
 import * as types from '../../store/mutation-types'
-import LanguageMixin from '../../mixins/LanguageMixin'
 
 export default {
   name: 'keyboard-switcher',
-  mixins: [LanguageMixin],
   data () {
     return {
       keyboards: [

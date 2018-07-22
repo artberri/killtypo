@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <strong>{{ $t("panel.accuracy") }}:</strong> {{ accuracy }}%
+    <strong v-t="{path: 'panel.accuracy', locale: $route.meta.lang}"></strong>: {{ accuracy }}%
   </div>
 </template>
 

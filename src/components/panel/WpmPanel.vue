@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <strong>{{ $t("panel.wpm") }}:</strong> {{ wpm }}
+    <strong v-t="{path: 'panel.wpm', locale: $route.meta.lang}"></strong>: {{ wpm }}
   </div>
 </template>
 

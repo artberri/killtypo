@@ -6,7 +6,7 @@
         <keyboard-switcher></keyboard-switcher>
         <language-switcher></language-switcher>
         <h1>
-          <router-link :to="{ name: 'home-' + language }">
+          <router-link :to="{ name: 'home-' + $route.meta.lang }">
             <img src="./assets/key.png" height="40" width="40"> K<span class="blue">ill</span>T<span class="blue">ypo</span>
           </router-link>
         </h1>
@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import LanguageMixin from './mixins/LanguageMixin'
 import LanguageSwitcher from './components/menu/LanguageSwitcher'
 import KeyboardSwitcher from './components/menu/KeyboardSwitcher'
 import MyFooter from './components/MyFooter'
@@ -28,7 +27,6 @@ import Notifications from './components/notifications/Notifications'
 
 export default {
   name: 'app',
-  mixins: [LanguageMixin],
   components: {
     LanguageSwitcher,
     KeyboardSwitcher,
@@ -37,5 +35,3 @@ export default {
   }
 }
 </script>
-
-<style src="./styles/global.css"></style>

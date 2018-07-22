@@ -1,18 +1,16 @@
 <template>
   <ul>
     <li><i class="fa fa-language" aria-hidden="true"></i> &nbsp; {{ selected.name }}</li>
-    <li v-for="lang in list" :lang="lang"><a v-on:click="setLanguage(lang)"><i></i> {{ lang.name }}</a></li>
+    <li v-for="(lang, index) in list" :key="index" :lang="lang"><a v-on:click="setLanguage(lang)"><i></i> {{ lang.name }}</a></li>
   </ul>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
 import * as types from '../../store/mutation-types'
-import LanguageMixin from '../../mixins/LanguageMixin'
 
 export default {
   name: 'language-switcher',
-  mixins: [LanguageMixin],
   data () {
     return {
       languages: [
@@ -35,7 +33,7 @@ export default {
       let language = langs[0]
 
       langs.forEach(lang => {
-        if (lang.code === this.language) {
+        if (lang.code === this.$route.meta.lang) {
           language = lang
         }
       })
@@ -46,7 +44,7 @@ export default {
       let response = []
 
       this.languages.forEach(lang => {
-        if (lang.code !== this.language) {
+        if (lang.code !== this.$route.meta.lang) {
           response.push(lang)
         }
       })

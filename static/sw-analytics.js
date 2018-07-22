@@ -1,3 +1,0 @@
-(function () {
-  goog.offlineGoogleAnalytics.initialize();
-}());

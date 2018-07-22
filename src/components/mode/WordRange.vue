@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label for="word-range" class="real-label">{{ $t("mode.trim", { wordLimit }) }}</label>
+    <label for="word-range" class="real-label" v-t="{path: 'mode.trim', locale: $route.meta.lang, args: { wordLimit }}"></label>
     <input id="word-range" type="range" :value="wordLimit" @input="updateWordLimit" :min="minWordLimit" :max="maxWordLimit">
   </div>
 </template>
@@ -9,11 +9,9 @@
 import { mapMutations, mapState } from 'vuex'
 import * as types from '../../store/mutation-types'
 import settings from '../../settings'
-import LanguageMixin from '../../mixins/LanguageMixin'
 
 export default {
   name: 'word-range',
-  mixins: [LanguageMixin],
   data () {
     return {
       minWordLimit: settings.minWordLimit,

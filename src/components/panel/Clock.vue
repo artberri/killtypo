@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <strong>{{ $t("panel.elapsed") }}:</strong> {{ minutes }}:{{ seconds }}
+    <strong v-t="{path: 'panel.elapsed', locale: $route.meta.lang}"></strong>: {{ minutes }}:{{ seconds }}
   </div>
 </template>
 

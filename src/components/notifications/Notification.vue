@@ -78,8 +78,8 @@ button {
 
 .fade-enter-active,
 .fade-leave-active {
-	animation-name: animScale;
-	animation-duration: 0.25s;
+  animation-name: animScale;
+  animation-duration: 0.25s;
 }
 
 .fade-enter,
@@ -88,12 +88,12 @@ button {
 }
 
 @keyframes animScale {
-	0% {
+  0% {
     opacity: 0;
     transform: translate3d(0, 40px, 0) scale3d(0.1, 0.6, 1);
   }
 
-	100% {
+  100% {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }

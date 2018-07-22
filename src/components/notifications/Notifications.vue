@@ -1,6 +1,6 @@
 <template>
   <div class="notifications">
-    <notification v-for="notification in notifications" :notification="notification" @close-notification="removeNotification">
+    <notification v-for="(notification, index) in notifications" :key="index" :notification="notification" @close-notification="removeNotification">
     </notification>
   </div>
 </template>

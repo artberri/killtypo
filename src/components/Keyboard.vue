@@ -1,7 +1,7 @@
 <template>
   <!-- Keyboard Based on https://codepen.io/attilahajzer/pen/kydqJ -->
   <div class="keyboard">
-    <key v-for="keyobj in keys" :keyobj="keyobj"></key>
+    <key v-for="(keyobj, index) in keys" :key="index" :keyobj="keyobj"></key>
   </div>
 </template>
 

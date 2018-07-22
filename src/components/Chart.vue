@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import Chart from 'chart.js'
 
@@ -52,7 +51,7 @@ export default {
           datasets: [
             {
               type: 'bubble',
-              label: Vue.t('chart.errors'),
+              label: this.$t('chart.errors', this.$route.meta.lang),
               borderColor: 'rgba(199, 6, 6, 1)',
               pointRadius: 5,
               backgroundColor: 'rgba(199, 6, 6, 1)',
@@ -81,7 +80,7 @@ export default {
           tooltips: {
             callbacks: {
               title (tooltip, data) {
-                return Vue.t('chart.tooltipWrong')
+                return this.$t('chart.tooltipWrong', this.$route.meta.lang)
               },
               label (tooltip, data) {
                 let datasetIndex = tooltip.datasetIndex
@@ -99,7 +98,7 @@ export default {
               position: 'bottom',
               scaleLabel: {
                 display: true,
-                labelString: Vue.t('chart.xAxisLabel')
+                labelString: this.$t('chart.xAxisLabel', this.$route.meta.lang)
               }
             }]
           }

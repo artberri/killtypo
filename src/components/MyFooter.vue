@@ -5,19 +5,19 @@
         <div class="pure-g">
             <div class="pure-u-1-3">
               <div class="container">
-                <h3>{{ $t("footer.about") }}</h3>
-                <p v-html="$t('footer.abouttext')"></p>
+                <h3 v-t="{path: 'footer.about', locale: $route.meta.lang}"></h3>
+                <p v-html="$t('footer.abouttext', $route.meta.lang)"></p>
               </div>
             </div>
             <div class="pure-u-1-3">
               <div class="container">
-                <h3>{{ $t("footer.contribute") }}</h3>
-                <p v-html="$t('footer.contributetext')"></p>
+                <h3 v-t="{path: 'footer.contribute', locale: $route.meta.lang}"></h3>
+                <p v-html="$t('footer.contributetext', $route.meta.lang)"></p>
               </div>
             </div>
             <div class="pure-u-1-3">
               <div class="container">
-                <h3>{{ $t("footer.contact") }}</h3>
+                <h3 v-t="{path: 'footer.contact', locale: $route.meta.lang}"></h3>
                 <p>
                   <a href="http://www.berriart.com">hello@killtypo.com</a>
                 </p>
