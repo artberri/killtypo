@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "replace": "replace-in-file '###trackingID###' $KILLTYPO_TRACKING_ID dist/index.html",
     "quotes": "node fetchtexts.js",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build && npm run replace",
     "lint": "vue-cli-service lint",
     "test": "vue-cli-service test:unit",
-    "release": "npm run quotes && npm run test && npm run build"
+    "release": "npm run quotes && npm run lint && npm run test && npm run build"
   },
   "dependencies": {
     "register-service-worker": "^1.0.0",
@@ -33,6 +34,7 @@
     "jsonfile": "^4.0.0",
     "precss": "^3.1.2",
     "prerender-spa-plugin": "^3.2.1",
+    "replace-in-file": "^3.4.0",
     "vue-template-compiler": "^2.5.16",
     "wikijs": "^4.8.1"
   }

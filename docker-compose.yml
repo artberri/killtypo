@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      args:
+        - KILLTYPO_TRACKING_ID=${KILLTYPO_TRACKING_ID}
+    ports:
+      - "1828:80"

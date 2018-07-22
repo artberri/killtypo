@@ -39,6 +39,8 @@ for (let j = 0; j < wikis.length; j++) {
             if (content.split(' ').length > 100) {
               return content
             }
+          }).catch((err) => {
+            return err
           })
       )
     }
@@ -61,6 +63,8 @@ for (let j = 0; j < wikis.length; j++) {
       })
 
       console.log(lang)
+    }).catch((err) => {
+      console.log(err.message)
     })
   })
 }

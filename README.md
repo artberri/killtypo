@@ -19,24 +19,44 @@ Feel free to contribute.
 ## Development Environment Setup
 
 ``` bash
-# install dependencies
 npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# fetch texts from wikipedia
-npm run quotes
-
-# build for production with minification
-npm run build
-
-# run unit tests
-npm run unit
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/)
-and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Fetch texts from wikipedia
+
+``` bash
+npm run quotes
+```
+
+### Compiles and hot-reloads for development
+
+``` bash
+npm run serve
+```
+
+### Compiles and minifies for production
+
+``` bash
+npm run build
+```
+
+### Lints and fixes files
+
+``` bash
+npm run lint
+```
+
+### Run your unit tests
+
+``` bash
+npm run test
+```
+
+### Prepare release
+
+``` bash
+npm run release
+```
 
 ## Reporting an issue or a feature request and contributing
 
