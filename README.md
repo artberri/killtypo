@@ -1,10 +1,10 @@
 # KillTypo
 
-The Progressive Web App To Practice Typing. [https://www.killtypo.com/](https://www.killtypo.com/)
+The Progressive Web App To Practice Typing.
 
 ## What is this about?
 
-KillTypo [https://www.killtypo.com/](https://www.killtypo.com/) is a project started by
+KillTypo is a project started by
 [Alberto Varela](http://www.berriart.com) in order to learn about [VueJS](https://vuejs.org/)
 and [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/). I believe
 that creating a real project eases the knowledge retention and helps understanding the new
